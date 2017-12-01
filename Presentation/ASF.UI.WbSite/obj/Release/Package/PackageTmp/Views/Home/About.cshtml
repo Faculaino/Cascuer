@@ -1,0 +1,28 @@
+﻿@using ASF.UI.WbSite.Constants.HomeController
+@{
+    ViewBag.Title = "About";
+    ViewBag.Description = "The Leather Goods about page.";
+    ViewBag.Author = "Facundo Ezequiel Laino";
+    ViewBag.ReferrerMode = ReferrerMode.OriginWhenCrossOrigin;
+    ViewBag.TwitterCard = new SummaryLargeImageTwitterCard("@VContrerasAR");
+    ViewBag.OpenGraph = new OpenGraphBusiness(
+        ViewBag.Title,
+        new OpenGraphImage(Url.AbsoluteContent("~/content/icons/open-graph-1200x630.png")) { Height = 630, Type = ContentType.Png, Width = 1200 },
+        new OpenGraphContactData("Jose C. Paz", "Buenos Aires", "Jose C. Paz", "Argentina")
+        {
+            Email = "faculaino@yahoo.com.ar",
+            Phone = "15-2176-0438",
+            Website = Url.AbsoluteRouteUrl(HomeControllerRoute.GetIndex)
+        },
+        new OpenGraphLocation(51.5286417, -0.1015987))
+    {
+        Determiner = OpenGraphDeterminer.Blank,
+        SiteName = Application.Name
+    };
+}
+
+<header class="page-header">
+    <h1><span aria-hidden="true" class="fa fa-users"></span> @ViewBag.Title</h1>
+</header>
+
+<p>@ViewBag.Description</p>
