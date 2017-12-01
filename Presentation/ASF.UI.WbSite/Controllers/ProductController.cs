@@ -9,9 +9,10 @@ using System.Web.Mvc;
 
 namespace ASF.UI.WbSite.Controllers
 {
+    
     public class ProductController : Controller
     {
-        //[Route("product", Name = HomeControllerRoute.GetProduct)]
+        
         public ActionResult Index()
         {
             var pp = new ProductProcess();

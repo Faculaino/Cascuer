@@ -1,14 +1,20 @@
-﻿
-@*@model IEnumerable<ASF.Entities.CartItem>*@
-@{
+﻿@{
     ViewBag.Title = "Cart item";
 }
-@*@Html.Partial("_Espacio1")*@
-<h2>Lista de Productos</h2><br />
 
-<table class="table">
+@Html.Partial("_Espacio1")
+
+<div class="row">
+    <div class="col-lg-8">
+        <h2>Cart item</h2><br />
+    </div>
+    <div class="col-lg-3">
+        <h4>Date: @DateTime.Now.ToShortDateString()</h4>
+    </div>
+</div>
+
+<table class="table table-hover">
     <tr>
-     
         <th>
             @Html.DisplayName("Title")
         </th>
@@ -25,12 +31,10 @@
     }
     @if (Session["Carrito"] != null)
     {
-        
         foreach (var item in Session["Carrito"] as List<ASF.Entities.CartItemDTO>)
         {
             total += (double)(item.Price * item.Quantity);
             <tr>
-              
                 <td>
                     @Html.DisplayFor(modelItem => item.Title)
                 </td>
@@ -41,7 +45,7 @@
                     @Html.DisplayFor(modelItem => item.Price)
                 </td>
                 <td>
-                    @Html.ActionLink("Delete", "Delete", new { id = item.ProductId })
+                    @Html.ActionLink("Delete", "Delete", new { id = item.ProductId }, new { @class = "btn btn-danger btn-sm" })
                 </td>
             </tr>
         }
@@ -53,9 +57,20 @@
                 @Html.DisplayName(total.ToString())
             </th>
             <th>
+
             </th>
         </tr>
     }
 </table>
-@Html.ActionLink("Go to product list", "Index", "Product")
-@*@Html.Partial("_Espacio2")*@
+<div class="row">
+    <div class="col-lg-2">
+        @Html.ActionLink("Product List", "Index", "Product", null, new { @class = "btn btn-success" })
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-4" style="float:right">
+        @Html.ActionLink("Finish", "finishCart", "Cart", null, new { @class = "btn btn-primary" })
+    </div>
+</div>
+
+@Html.Partial("_Espacio2")

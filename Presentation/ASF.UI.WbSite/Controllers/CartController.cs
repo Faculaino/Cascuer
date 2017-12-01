@@ -1,22 +1,22 @@
-﻿using ASF.Entities;
-using ASF.UI.Process;
-using ASF.UI.WbSite.Constants.HomeController;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using ASF.UI.Process;
+using ASF.Entities;
+using ASF.UI.WbSite.Services.Cache;
 
 namespace ASF.UI.WbSite.Controllers
 {
     public class CartController : Controller
     {
-        
+
         public ActionResult Index()
         {
-            //return View();
             return View(Session["Carrito"]);
         }
+
         public ActionResult addCart(int id)
         {
             var producto = new ProductProcess().findProduct(id);
@@ -48,7 +48,7 @@ namespace ASF.UI.WbSite.Controllers
                     cartItem[idexistente].Quantity++;
                 Session["Carrito"] = cartItem;
             }
-            return View();
+            return RedirectToAction("Index");
         }
 
         private int controlarId(int id)
@@ -62,19 +62,60 @@ namespace ASF.UI.WbSite.Controllers
             return -1;
         }
 
-        public ActionResult Delete(int id)
+        public ActionResult finishCart()
         {
-            var cp = new CartProcess();
+            List<CartItemDTO> compras = (List<CartItemDTO>)Session["Carrito"];
 
-            return View(cp.findCart(id));
+            if (compras != null && compras.Count > 0)
+            {
+                //CartItem cartitem = new CartItem();
+                //List<CartItem> listcartitem = new List<CartItem>();
+
+                foreach (var item in compras)
+                {
+                    //cartitem.ProductId = item.ProductId;
+                    //cartitem.Quantity = item.Quantity;
+                    //cartitem.Price = item.Price;
+
+                    //listcartitem.Add(cartitem);
+                    //CartProcess cp = new CartProcess();
+                    //cp.insertCartItemDTO(item);
+                }
+                Session.RemoveAll();
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Index", "Product");
+            }
         }
+
+        // GET: Cart
+        //public ActionResult Index()
+        //{
+        //    return View();
+        //}
+
+        // GET: Cart/Details/5
+        public ActionResult Details(int id)
+        {
+            return View();
+        }
+
+        // GET: Cart/Create
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+        // POST: Cart/Create
         [HttpPost]
-        public ActionResult Delete(int id, Cart cart)
+        public ActionResult Create(FormCollection collection)
         {
             try
             {
-                var cp = new CartProcess();
-                cp.deteleCart(id);
+                // TODO: Add insert logic here
+
                 return RedirectToAction("Index");
             }
             catch
@@ -83,6 +124,50 @@ namespace ASF.UI.WbSite.Controllers
             }
         }
 
+        // GET: Cart/Edit/5
+        public ActionResult Edit(int id)
+        {
+            return View();
+        }
 
+        // POST: Cart/Edit/5
+        [HttpPost]
+        public ActionResult Edit(int id, FormCollection collection)
+        {
+            try
+            {
+                // TODO: Add update logic here
+
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
+        // GET: Cart/Delete/5
+        public ActionResult Delete(int id)
+        {
+            List<CartItemDTO> cartItem = (List<CartItemDTO>)Session["Carrito"];
+            cartItem.RemoveAt(controlarId(id));
+            return View("addCart");
+        }
+
+        // POST: Cart/Delete/5
+        [HttpPost]
+        public ActionResult Delete(int id, FormCollection collection)
+        {
+            try
+            {
+                // TODO: Add delete logic here
+
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                return View();
+            }
+        }
     }
 }

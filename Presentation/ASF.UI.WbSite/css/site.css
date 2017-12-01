@@ -10,3 +10,12 @@ h2 {
 h4 {
     margin-top:100px;
 }
+
+h3{
+    margin-top:10px;
+}
+
+.img-circle{
+    width:140px;
+    height:140px;
+}
