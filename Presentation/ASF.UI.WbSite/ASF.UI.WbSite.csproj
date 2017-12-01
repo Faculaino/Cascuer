@@ -318,8 +318,8 @@
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\DealerDTO.cs" />
-    <Compile Include="ViewModels\IdentityModels.cs" />
-    <Compile Include="ViewModels\ManageViewModels.cs" />
+    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\BrowserConfig\BrowserConfigService.cs" />
     <Compile Include="Services\BrowserConfig\IBrowserConfigService.cs" />
