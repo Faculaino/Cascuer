@@ -9,6 +9,7 @@ using ASF.UI.WbSite.Services.Cache;
 
 namespace ASF.UI.WbSite.Controllers
 {
+    [AllowAnonymous]
     public class CartController : Controller
     {
 

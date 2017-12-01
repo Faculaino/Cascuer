@@ -9,7 +9,7 @@ using System.Web.Mvc;
 
 namespace ASF.UI.WbSite.Controllers
 {
-    
+    [AllowAnonymous]
     public class ProductController : Controller
     {
         
