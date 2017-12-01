@@ -9,25 +9,25 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/ASF.Business.dll">
-      <publishTime>12/01/2017 11:55:47</publishTime>
+      <publishTime>12/01/2017 17:29:15</publishTime>
     </File>
     <File Include="bin/ASF.Data.dll">
-      <publishTime>12/01/2017 11:55:47</publishTime>
+      <publishTime>12/01/2017 17:29:15</publishTime>
     </File>
     <File Include="bin/ASF.Entities.dll">
-      <publishTime>12/01/2017 11:54:03</publishTime>
+      <publishTime>12/01/2017 17:26:55</publishTime>
     </File>
     <File Include="bin/ASF.Hosts.Web.dll">
-      <publishTime>12/01/2017 11:55:48</publishTime>
+      <publishTime>12/01/2017 17:29:16</publishTime>
     </File>
     <File Include="bin/ASF.Services.Contracts.dll">
-      <publishTime>12/01/2017 11:55:31</publishTime>
+      <publishTime>12/01/2017 17:28:54</publishTime>
     </File>
     <File Include="bin/ASF.Services.dll">
-      <publishTime>12/01/2017 11:55:47</publishTime>
+      <publishTime>12/01/2017 17:29:15</publishTime>
     </File>
     <File Include="bin/ASF.Services.Http.dll">
-      <publishTime>12/01/2017 11:55:47</publishTime>
+      <publishTime>12/01/2017 17:29:15</publishTime>
     </File>
     <File Include="bin/Microsoft.Practices.EnterpriseLibrary.Common.dll">
       <publishTime>04/25/2013 10:04:08</publishTime>

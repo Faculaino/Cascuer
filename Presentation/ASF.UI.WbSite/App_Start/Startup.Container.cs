@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Reflection;
 using System.Web.Mvc;
-using ASF.UI.WbSite.Models;
+using ASF.UI.WbSite.ViewModels;
 using ASF.UI.WbSite.Services.BrowserConfig;
 using ASF.UI.WbSite.Services.Feed;
 using ASF.UI.WbSite.Services.Logging;

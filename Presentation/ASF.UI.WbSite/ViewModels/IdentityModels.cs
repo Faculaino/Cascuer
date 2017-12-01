@@ -4,13 +4,14 @@ using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 
-namespace ASF.UI.WbSite.Models
+namespace ASF.UI.WbSite.ViewModels
 {
     public class AppUser
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Email { get; set; }
+        public string UserName { get; set; }
     }
 
 

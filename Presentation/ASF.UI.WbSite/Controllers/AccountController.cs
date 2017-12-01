@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using ASF.UI.WbSite;
-using ASF.UI.WbSite.Models;
+//using ASF.UI.WbSite.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
-using ASF.UI.wbsite.ViewModels;
+using ASF.UI.WbSite.ViewModels;
+
 
 namespace ASF.UI.WbSite.Controllers
 {
@@ -149,7 +150,7 @@ namespace ASF.UI.WbSite.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Register(Models.RegisterViewModel model)
+        public async Task<ActionResult> Register(RegisterViewModel model)
         {
             if (ModelState.IsValid)
             {

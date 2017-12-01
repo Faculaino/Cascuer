@@ -6,6 +6,7 @@ using ASF.UI.WbSite.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
+using ASF.UI.WbSite.ViewModels;
 
 namespace ASF.UI.WbSite.Controllers
 {

@@ -19,19 +19,19 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>09/10/2013 16:29:20</publishTime>
     </File>
     <File Include="bin/ASF.Entities.dll">
-      <publishTime>12/01/2017 11:54:03</publishTime>
+      <publishTime>12/01/2017 17:26:55</publishTime>
     </File>
     <File Include="bin/ASF.Framework.dll">
       <publishTime>12/01/2017 11:55:32</publishTime>
     </File>
     <File Include="bin/ASF.Services.Contracts.dll">
-      <publishTime>12/01/2017 11:55:31</publishTime>
+      <publishTime>12/01/2017 17:28:54</publishTime>
     </File>
     <File Include="bin/ASF.UI.Process.dll">
-      <publishTime>12/01/2017 11:55:32</publishTime>
+      <publishTime>12/01/2017 17:28:55</publishTime>
     </File>
     <File Include="bin/ASF.UI.WbSite.dll">
-      <publishTime>12/01/2017 11:55:32</publishTime>
+      <publishTime>12/01/2017 17:28:56</publishTime>
     </File>
     <File Include="bin/Autofac.Configuration.dll">
       <publishTime>09/07/2016 16:26:38</publishTime>
@@ -170,6 +170,9 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
     </File>
     <File Include="bin/System.Web.Helpers.dll">
       <publishTime>01/28/2015 04:04:30</publishTime>
+    </File>
+    <File Include="bin/System.Web.Http.dll">
+      <publishTime>01/28/2015 04:02:54</publishTime>
     </File>
     <File Include="bin/System.Web.Mvc.dll">
       <publishTime>01/28/2015 04:02:18</publishTime>
@@ -315,26 +318,29 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
     <File Include="Scripts/respond.min.js">
       <publishTime>12/01/2017 09:56:48</publishTime>
     </File>
+    <File Include="sitemap.xml">
+      <publishTime>12/01/2017 14:15:30</publishTime>
+    </File>
     <File Include="Views/Account/ConfirmEmail.cshtml">
       <publishTime>12/01/2017 09:56:48</publishTime>
     </File>
     <File Include="Views/Account/ExternalLoginConfirmation.cshtml">
-      <publishTime>12/01/2017 09:56:48</publishTime>
+      <publishTime>12/01/2017 17:00:00</publishTime>
     </File>
     <File Include="Views/Account/ExternalLoginFailure.cshtml">
       <publishTime>12/01/2017 09:56:48</publishTime>
     </File>
     <File Include="Views/Account/ForgotPassword.cshtml">
-      <publishTime>12/01/2017 09:56:48</publishTime>
+      <publishTime>12/01/2017 16:57:16</publishTime>
     </File>
     <File Include="Views/Account/ForgotPasswordConfirmation.cshtml">
       <publishTime>12/01/2017 09:56:48</publishTime>
     </File>
     <File Include="Views/Account/Login.cshtml">
-      <publishTime>12/01/2017 09:56:48</publishTime>
+      <publishTime>12/01/2017 17:15:42</publishTime>
     </File>
     <File Include="Views/Account/Register.cshtml">
-      <publishTime>12/01/2017 09:56:48</publishTime>
+      <publishTime>12/01/2017 17:00:00</publishTime>
     </File>
     <File Include="Views/Account/ResetPassword.cshtml">
       <publishTime>12/01/2017 09:56:48</publishTime>
@@ -349,7 +355,7 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>12/01/2017 09:56:48</publishTime>
     </File>
     <File Include="Views/Account/_ExternalLoginsListPartial.cshtml">
-      <publishTime>12/01/2017 09:56:48</publishTime>
+      <publishTime>12/01/2017 16:59:33</publishTime>
     </File>
     <File Include="Views/Cart/addCart.cshtml">
       <publishTime>12/01/2017 09:56:48</publishTime>
@@ -448,7 +454,7 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>12/01/2017 09:56:48</publishTime>
     </File>
     <File Include="Views/Home/Index.cshtml">
-      <publishTime>12/01/2017 09:56:48</publishTime>
+      <publishTime>12/01/2017 14:02:38</publishTime>
     </File>
     <File Include="Views/Manage/AddPhoneNumber.cshtml">
       <publishTime>12/01/2017 09:56:48</publishTime>
@@ -499,7 +505,7 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>12/01/2017 09:56:48</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>12/01/2017 11:53:34</publishTime>
+      <publishTime>12/01/2017 15:43:57</publishTime>
     </File>
     <File Include="Views/Shared/_LoginPartial.cshtml">
       <publishTime>12/01/2017 09:56:48</publishTime>
