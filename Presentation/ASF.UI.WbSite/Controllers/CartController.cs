@@ -12,7 +12,7 @@ namespace ASF.UI.WbSite.Controllers
     [AllowAnonymous]
     public class CartController : Controller
     {
-           
+
         public ActionResult Index()
         {
             return View(Session["Carrito"]);
@@ -24,13 +24,13 @@ namespace ASF.UI.WbSite.Controllers
 
             if (Session["Carrito"] == null)
             {
-               List<CartItemDTO> cartItem = new List<CartItemDTO>();
+                List<CartItemDTO> cartItem = new List<CartItemDTO>();
                 var carritoItem = new CartItemDTO();
                 carritoItem.ProductId = producto.Id;
                 carritoItem.Title = producto.Title;
                 carritoItem.Price = producto.Price;
                 carritoItem.Quantity = producto.QuantitySold;
-            
+
                 cartItem.Add(carritoItem);
                 Session["Carrito"] = cartItem;
             }
@@ -49,13 +49,13 @@ namespace ASF.UI.WbSite.Controllers
                     cartItem[idexistente].Quantity++;
                 Session["Carrito"] = cartItem;
             }
-            return View();
+            return RedirectToAction("Index");
         }
 
         private int controlarId(int id)
         {
             List<CartItemDTO> cartItem = (List<CartItemDTO>)Session["Carrito"];
-            for (int i = 0; i < cartItem.Count ; i++)
+            for (int i = 0; i < cartItem.Count; i++)
             {
                 if (cartItem[i].ProductId == id)
                     return i;
@@ -66,8 +66,8 @@ namespace ASF.UI.WbSite.Controllers
         public ActionResult finishCart()
         {
             List<CartItemDTO> compras = (List<CartItemDTO>)Session["Carrito"];
-             
-            if(compras != null && compras.Count > 0)
+
+            if (compras != null && compras.Count > 0)
             {
                 //CartItem cartitem = new CartItem();
                 //List<CartItem> listcartitem = new List<CartItem>();
@@ -79,8 +79,8 @@ namespace ASF.UI.WbSite.Controllers
                     //cartitem.Price = item.Price;
 
                     //listcartitem.Add(cartitem);
-                //CartProcess cp = new CartProcess();
-                //cp.insertCartItemDTO(item);
+                    //CartProcess cp = new CartProcess();
+                    //cp.insertCartItemDTO(item);
                 }
                 Session.RemoveAll();
                 return View();
@@ -88,8 +88,14 @@ namespace ASF.UI.WbSite.Controllers
             else
             {
                 return RedirectToAction("Index", "Product");
-            }           
+            }
         }
+
+        // GET: Cart
+        //public ActionResult Index()
+        //{
+        //    return View();
+        //}
 
         // GET: Cart/Details/5
         public ActionResult Details(int id)
