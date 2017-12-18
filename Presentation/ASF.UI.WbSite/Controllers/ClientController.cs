@@ -12,29 +12,33 @@ namespace ASF.UI.WbSite.Controllers
     public class ClientController : Controller
     {
         // GET: Client
-        public ActionResult Index ()
+        public ActionResult Index()
         {
             //var cp = new ClientProcess();
             var lista = DataCache.Instance.ClientList();
             //return View(cp.SelectList());
-            return View( lista );
+            return View(lista);
         }
 
         // GET: Client/Create
-        public ActionResult Create ()
+        public ActionResult Create()
         {
+            var country = new CountryProcess().SelectList();
+
+            ViewBag.Country = new SelectList(country, "Id", "Name");
+
             return View();
         }
 
         // POST: Client/Create
         [HttpPost]
-        public ActionResult Create ( Client Client )
+        public ActionResult Create(Client Client)
         {
             try
             {
                 var cp = new ClientProcess();
 
-                cp.insertClient( Client );
+                cp.insertClient(Client);
 
                 DataCache.Instance.ClientListRemove();
 
@@ -47,31 +51,35 @@ namespace ASF.UI.WbSite.Controllers
         }
 
         // GET: Client/Details
-        public ActionResult Details ( int id )
+        public ActionResult Details(int id)
         {
             var cp = new ClientProcess();
 
-            return View( cp.findClient( id ) );
+            return View( cp.findClient(id));
         }
 
         // GET: Client/Edit/5
-        public ActionResult Edit ( int id )
+        public ActionResult Edit(int id)
         {
+            var country = new CountryProcess().SelectList();
+
+            ViewBag.Country = new SelectList(country, "Id", "Name", id);
+
             var cp = new ClientProcess();
 
-            return View( cp.findClient( id ) );
+            return View( cp.findClient(id));
         }
 
         // POST: Client/Edit/5
         [HttpPost]
-        public ActionResult Edit ( Client Client )
+        public ActionResult Edit(Client Client)
         {
             try
             {
                 var cp = new ClientProcess();
                 cp.editClient( Client );
                 DataCache.Instance.ClientListRemove();
-                return RedirectToAction( "Index" );
+                return RedirectToAction("Index");
             }
             catch
             {
@@ -80,23 +88,23 @@ namespace ASF.UI.WbSite.Controllers
         }
 
         // GET: Client/Delete/5
-        public ActionResult Delete ( int id )
+        public ActionResult Delete(int id)
         {
             var cp = new ClientProcess();
 
-            return View( cp.findClient( id ) );
+            return View( cp.findClient(id));
         }
 
         // POST: Client/Delete/5
         [HttpPost]
-        public ActionResult Delete ( int id, Client Client )
+        public ActionResult Delete(int id, Client Client)
         {
             try
             {
                 var cp = new ClientProcess();
-                cp.deleteClient( id );
+                cp.deleteClient(id);
                 DataCache.Instance.ClientListRemove();
-                return RedirectToAction( "Index" );
+                return RedirectToAction("Index");
             }
             catch
             {

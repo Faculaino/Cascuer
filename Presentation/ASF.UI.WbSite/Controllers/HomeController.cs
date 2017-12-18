@@ -17,7 +17,8 @@ namespace ASF.UI.WbSite.Controllers
     using System.Web.Mvc;
     using Boilerplate.Web.Mvc;
     using Boilerplate.Web.Mvc.Filters;
-    using Constants;
+    using ASF.UI.WbSite.Constants;
+    using ASF.UI.WbSite.Services;
 
     [AllowAnonymous]
     public class HomeController : Controller
@@ -31,41 +32,32 @@ namespace ASF.UI.WbSite.Controllers
         private readonly IRobotsService robotsService;
         private readonly ISitemapService sitemapService;
         private readonly IIdentityMessageService emailService;
-       
 
         #endregion
 
         #region Constructors
 
-        public HomeController()
+        public HomeController(
+            IBrowserConfigService browserConfigService,
+            IFeedService feedService,
+            IManifestService manifestService,
+            IOpenSearchService openSearchService,
+            IRobotsService robotsService,
+            ISitemapService sitemapService, IIdentityMessageService emailService)
         {
+            this.browserConfigService = browserConfigService;
+            this.feedService = feedService;
+            this.manifestService = manifestService;
+            this.openSearchService = openSearchService;
+            this.robotsService = robotsService;
+            this.sitemapService = sitemapService;
+            this.emailService = @emailService;
 
         }
 
-        //public HomeController(
-        
-        //IBrowserConfigService browserConfigService,
-        //IFeedService feedService,
-        //    IManifestService manifestService,
-        //    IOpenSearchService openSearchService,
-        //    IRobotsService robotsService,
-        //    ISitemapService sitemapService, IIdentityMessageService emailService)
-        //{
-        //    this.browserConfigService = browserConfigService;
-        //    this.feedService = feedService;
-        //    this.manifestService = manifestService;
-        //    this.openSearchService = openSearchService;
-        //    this.robotsService = robotsService;
-        //    this.sitemapService = sitemapService;
-        //    this.emailService = @emailService;
+        #endregion
 
-        //}
-
-
-
-    #endregion
-
-    [Route("", Name = HomeControllerRoute.GetIndex)]
+        [Route("", Name = HomeControllerRoute.GetIndex)]
         public ActionResult Index()
         {
             // ***** sender email credentials (gamil) *****/
@@ -119,7 +111,7 @@ namespace ASF.UI.WbSite.Controllers
 
             // For simplicity we are just assuming your site is indexed on Google and redirecting to it.
             return this.Redirect(string.Format(
-                "https://www.google.co.uk/?q=site:{0} {1}",
+                "https://www.google.co.uk/?q=site:{0} {1}", 
                 this.Url.AbsoluteRouteUrl(HomeControllerRoute.GetIndex),
                 query));
         }
@@ -175,7 +167,7 @@ namespace ASF.UI.WbSite.Controllers
         public ContentResult OpenSearchXml()
         {
             Trace.WriteLine(string.Format(
-                "opensearch.xml requested. User Agent:<{0}>.",
+                "opensearch.xml requested. User Agent:<{0}>.", 
                 this.Request.Headers.Get("User-Agent")));
             string content = this.openSearchService.GetOpenSearchXml();
             return this.Content(content, ContentType.Xml, Encoding.UTF8);
@@ -195,7 +187,7 @@ namespace ASF.UI.WbSite.Controllers
         public ContentResult RobotsText()
         {
             Trace.WriteLine(string.Format(
-                "robots.txt requested. User Agent:<{0}>.",
+                "robots.txt requested. User Agent:<{0}>.", 
                 this.Request.Headers.Get("User-Agent")));
             string content = this.robotsService.GetRobotsText();
             return this.Content(content, ContentType.Text, Encoding.UTF8);
@@ -221,6 +213,6 @@ namespace ASF.UI.WbSite.Controllers
             }
 
             return this.Content(content, ContentType.Xml, Encoding.UTF8);
-        }
+        }  
     }
 }

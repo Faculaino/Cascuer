@@ -3,7 +3,7 @@
 @{
     ViewBag.Title = "Index";
 }
-
+@Html.Partial("_Espacio1")
 <h2>Index</h2>
 
 <p>
@@ -32,23 +32,23 @@
         <th>
             @Html.DisplayNameFor(model => model.SignupDate)
         </th>
-        <th>
+        @*<th>
             @Html.DisplayNameFor(model => model.Rowid)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.OrderCount)
         </th>
-        @*<th>
-            @Html.DisplayNameFor(model => model.CreatedOn)
+        <th>
+            @Html.HiddenFor(model => model.CreatedOn)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.CreatedBy)
+            @Html.HiddenFor(model => model.CreatedBy)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ChangedOn)
+            @Html.HiddenFor(model => model.ChangedOn)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ChangedBy)
+            @Html.HiddenFor(model => model.ChangedBy)
         </th>*@
         <th></th>
     </tr>
@@ -76,23 +76,23 @@
         <td>
             @Html.DisplayFor(modelItem => item.SignupDate)
         </td>
-        <td>
+        @*<td>
             @Html.DisplayFor(modelItem => item.Rowid)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.OrderCount)
         </td>
-        @*<td>
-            @Html.DisplayFor(modelItem => item.CreatedOn)
+        <td>
+            @Html.HiddenFor(modelItem => item.CreatedOn)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.CreatedBy)
+            @Html.HiddenFor(modelItem => item.CreatedBy)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.ChangedOn)
+            @Html.HiddenFor(modelItem => item.ChangedOn)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.ChangedBy)
+            @Html.HiddenFor(modelItem => item.ChangedBy)
         </td>*@
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
@@ -103,3 +103,4 @@
 }
 
 </table>
+@Html.Partial("_Espacio2")

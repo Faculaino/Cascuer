@@ -33,13 +33,15 @@
     {
         foreach (var item in Session["Carrito"] as List<ASF.Entities.CartItemDTO>)
         {
+            
             total += (double)(item.Price * item.Quantity);
             <tr>
                 <td>
                     @Html.DisplayFor(modelItem => item.Title)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Quantity)
+                    @*@Html.DisplayFor(modelItem => item.Quantity)*@
+                    <input  type="number" id="cantidad"/>
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Price)
@@ -74,3 +76,8 @@
 </div>
 
 @Html.Partial("_Espacio2")
+
+<script>
+    var valor = document.getElementById('cantidad').value();
+    alert(valor);
+</script>

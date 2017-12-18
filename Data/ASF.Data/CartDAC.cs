@@ -1,51 +1,58 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Data.Common;
 using System.Data;
 using Microsoft.Practices.EnterpriseLibrary.Data;
-using Microsoft.Practices.EnterpriseLibrary;
 using ASF.Entities;
 
 namespace ASF.Data
 {
     public class CartDAC : DataAccessComponent
     {
-        public Cart Create(Cart cart)
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="CartItemDTO"></param>
+        /// <returns></returns>
+        public CartItemDTO Create(CartItemDTO CartItemDTO)
         {
-            const string sqlStatement = "INSERT INTO dbo.Cart ([Cookie], [CartDate], [ItemCount], [Rowid], [CreatedOn], [CreatedBy], [ChangedOn], [ChangedBy]) " +
-                "VALUES(@Cookie, @CartDate, @ItemCount, @Rowid, @CreatedOn, @CreatedBy, @ChangedOn, @ChangedBy); SELECT SCOPE_IDENTITY();";
+            const string sqlStatement = "INSERT INTO dbo.CartItemDTO ([FirstName], [LastName], [CategoryId], [CountryId], [Description], [TotalProducts], [Rowid], [CreatedOn], [CreatedBy], [ChangedOn], [ChangedBy]) " +
+                "VALUES(@FirstName, @LastName, @CategoryId, @CountryId, @Descritpion, @TotalProducts, @Rowid, @CreatedOn, @CreatedBy, @ChangedOn, @ChangedBy); SELECT SCOPE_IDENTITY();";
 
             var db = DatabaseFactory.CreateDatabase(ConnectionName);
             using (var cmd = db.GetSqlStringCommand(sqlStatement))
             {
-                cart.CreatedOn = DateTime.Now;
-                cart.CreatedBy = 1;
-                cart.ChangedOn = DateTime.Now;
-                cart.ChangedBy = 1;
-                db.AddInParameter(cmd, "@Cookie", DbType.String, cart.Cookie);
-                db.AddInParameter(cmd, "@CartDate", DbType.DateTime2, cart.CartDate);
-                db.AddInParameter(cmd, "@ItemCount", DbType.Int32, cart.ItemCount);
-                db.AddInParameter(cmd, "@Rowid", DbType.Guid, cart.Rowid);
-                db.AddInParameter(cmd, "@CreatedOn", DbType.DateTime2, cart.CreatedOn);
-                db.AddInParameter(cmd, "@CreatedBy", DbType.Int32, cart.CreatedBy);
-                db.AddInParameter(cmd, "@ChangedOn", DbType.DateTime2, cart.ChangedOn);
-                db.AddInParameter(cmd, "@ChangedBy", DbType.Int32, cart.ChangedBy);
-                // Obtener el valor de la primary key.
-                cart.Id = Convert.ToInt32(db.ExecuteScalar(cmd));
+                //db.AddInParameter(cmd, "@FirstName", DbType.String, CartItemDTO.FirstName);
+                //db.AddInParameter(cmd, "@LastName", DbType.String, CartItemDTO.LastName);
+                //db.AddInParameter(cmd, "@CategoryId", DbType.Int32, CartItemDTO.CategoryId);
+                //db.AddInParameter(cmd, "@CountryId", DbType.Int32, CartItemDTO.CountryId);
+                //db.AddInParameter(cmd, "@Descritpion", DbType.String, CartItemDTO.Description);
+                //db.AddInParameter(cmd, "@TotalProducts", DbType.Int32, CartItemDTO.TotalProducts);
+                //db.AddInParameter(cmd, "@Rowid", DbType.Guid, CartItemDTO.Rowid);
+                //db.AddInParameter(cmd, "@CreatedOn", DbType.DateTime2, CartItemDTO.CreatedOn);
+                //db.AddInParameter(cmd, "@CreatedBy", DbType.Int32, CartItemDTO.CreatedBy);
+                //db.AddInParameter(cmd, "@ChangedOn", DbType.DateTime2, CartItemDTO.ChangedOn);
+                //db.AddInParameter(cmd, "@ChangedBy", DbType.Int32, CartItemDTO.ChangedBy);
+                //// Obtener el valor de la primary key.
+                //CartItemDTO.Id = Convert.ToInt32(db.ExecuteScalar(cmd));
             }
 
-            return cart;
+            return CartItemDTO;
         }
 
-        public void UpdateById(Cart cart)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="CartItemDTO"></param>
+        public void UpdateById(CartItemDTO CartItemDTO)
         {
-            const string sqlStatement = "UPDATE dbo.Cart " +
-                "SET [Cookie]=@Cookie, " +
-                    "[CartDate]=@CartDate, " +
-                    "[ItemCount]=@ItemCount, " +
+            const string sqlStatement = "UPDATE [dbo].[CartItemDTO] " +
+                "SET [FirstName]=@FirstName, " +
+                    "[LastName]=@LastName, " +
+                    "[CategoryId]=@CategoryId, " +
+                    "[CountryId]=@CountryId, " +
+                    "[Description]=@Description, " +
+                    "[TotalProducts]=@TotalProducts, " +
                     "[Rowid]=@Rowid, " +
                     "[CreatedOn]=@CreatedOn, " +
                     "[CreatedBy]=@CreatedBy, " +
@@ -56,17 +63,20 @@ namespace ASF.Data
             var db = DatabaseFactory.CreateDatabase(ConnectionName);
             using (var cmd = db.GetSqlStringCommand(sqlStatement))
             {
-                db.AddInParameter(cmd, "@Cookie", DbType.String, cart.Cookie);
-                db.AddInParameter(cmd, "@CartDate", DbType.DateTime2, cart.CartDate);
-                db.AddInParameter(cmd, "@ItemCount", DbType.Int32, cart.ItemCount);
-                db.AddInParameter(cmd, "@Rowid", DbType.Guid, cart.Rowid);
-                db.AddInParameter(cmd, "@CreatedOn", DbType.DateTime2, cart.CreatedOn);
-                db.AddInParameter(cmd, "@CreatedBy", DbType.Int32, cart.CreatedBy);
-                db.AddInParameter(cmd, "@ChangedOn", DbType.DateTime2, cart.ChangedOn);
-                db.AddInParameter(cmd, "@ChangedBy", DbType.Int32, cart.ChangedBy);
-                db.AddInParameter(cmd, "@Id", DbType.Int32, cart.Id);
+                //db.AddInParameter(cmd, "@FirstName", DbType.String, CartItemDTO.FirstName);
+                //db.AddInParameter(cmd, "@LastName", DbType.String, CartItemDTO.LastName);
+                //db.AddInParameter(cmd, "@CategoryId", DbType.Int32, CartItemDTO.CategoryId);
+                //db.AddInParameter(cmd, "@CountryId", DbType.Int32, CartItemDTO.CountryId);
+                //db.AddInParameter(cmd, "@Description", DbType.String, CartItemDTO.Description);
+                //db.AddInParameter(cmd, "@TotalProducts", DbType.Int32, CartItemDTO.TotalProducts);
+                //db.AddInParameter(cmd, "@Rowid", DbType.Guid, CartItemDTO.Rowid);
+                //db.AddInParameter(cmd, "@CreatedOn", DbType.DateTime2, CartItemDTO.CreatedOn);
+                //db.AddInParameter(cmd, "@CreatedBy", DbType.Int32, CartItemDTO.CreatedBy);
+                //db.AddInParameter(cmd, "@ChangedOn", DbType.DateTime2, CartItemDTO.ChangedOn);
+                //db.AddInParameter(cmd, "@ChangedBy", DbType.Int32, CartItemDTO.ChangedBy);
+                //db.AddInParameter(cmd, "@Id", DbType.Int32, CartItemDTO.Id);
 
-                db.ExecuteNonQuery(cmd);
+                //db.ExecuteNonQuery(cmd);
             }
         }
 
@@ -76,7 +86,7 @@ namespace ASF.Data
         /// <param name="id"></param>
         public void DeleteById(int id)
         {
-            const string sqlStatement = "DELETE dbo.Cart WHERE [Id]=@Id ";
+            const string sqlStatement = "DELETE dbo.CartItemDTO WHERE [Id]=@Id ";
             var db = DatabaseFactory.CreateDatabase(ConnectionName);
             using (var cmd = db.GetSqlStringCommand(sqlStatement))
             {
@@ -90,31 +100,43 @@ namespace ASF.Data
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public Cart SelectById(int id)
+        public CartItemDTO SelectById(int id)
         {
-            const string sqlStatement = "SELECT [Id], [Cookie], [CartDate], [ItemCount], [Rowid], [CreatedOn], [CreatedBy], [ChangedOn], [ChangedBy] " +
-                "FROM dbo.Cart WHERE [Id]=@Id ";
+            const string sqlStatement = @" SELECT [Id], [FirstName], [LastName], [CategoryId], [CountryId], [Description], [TotalProducts], [Rowid], [CreatedOn], [CreatedBy], [ChangedOn], [ChangedBy]
+                FROM dbo.CartItemDTO WHERE [Id]=@Id ";
 
-            Cart cart = null;
+            CartItemDTO CartItemDTO = null;
             var db = DatabaseFactory.CreateDatabase(ConnectionName);
             using (var cmd = db.GetSqlStringCommand(sqlStatement))
             {
                 db.AddInParameter(cmd, "@Id", DbType.Int32, id);
                 using (var dr = db.ExecuteReader(cmd))
                 {
-                    if (dr.Read()) cart = LoadCart(dr);
+                    if (dr.Read())
+                        CartItemDTO = LoadCartItemDTO(dr);
                 }
             }
 
-            return cart;
+            return CartItemDTO;
         }
 
-        public List<Cart> Select()
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>		
+        public List<CartItemDTO> Select()
         {
             // WARNING! Performance
-            const string sqlStatement = "SELECT [Id], [Cookie], [CartDate], [ItemCount], [Rowid], [CreatedOn], [CreatedBy], [ChangedOn], [ChangedBy] FROM dbo.Cart ";
+            const string sqlStatement = @"SELECT [De].[Id], [De].[FirstName], [De].[LastName], [De].[CategoryId], [Ca].[Name] AS CategoryName, [De].[CountryId], [Co].[Name] AS CountryName, [De].[Description], 
+                                        [De].[TotalProducts], [De].[Rowid], [De].[CreatedOn], [De].[CreatedBy], [De].[ChangedOn], [De].[ChangedBy] 
+                                        FROM[dbo].[CartItemDTO] AS De INNER JOIN[dbo].[Country] AS Co 
+                                        ON De.CountryId = Co.Id INNER JOIN[dbo].[Category] AS Ca 
+                                        ON De.CategoryId = Ca.Id 
+                                        order by [De].[Id] asc ";
+            //const string sqlStatement = "SELECT [Id], [FirstName], [LastName], [CategoryId], [CountryId], [Description], [TotalProducts], [Rowid], [CreatedOn], [CreatedBy], [ChangedOn], " +
+            //    "[ChangedBy] FROM dbo.CartItemDTO ";
 
-            var result = new List<Cart>();
+            var result = new List<CartItemDTO>();
             var db = DatabaseFactory.CreateDatabase(ConnectionName);
             using (var cmd = db.GetSqlStringCommand(sqlStatement))
             {
@@ -122,29 +144,68 @@ namespace ASF.Data
                 {
                     while (dr.Read())
                     {
-                        var cart = LoadCart(dr); // Mapper
-                        result.Add(cart);
+                        var CartItemDTO = LoadCartItemDTODTO(dr); // Mapper
+                        result.Add(CartItemDTO);
                     }
                 }
             }
 
             return result;
         }
-        private static Cart LoadCart(IDataReader dr)
+
+        /// <summary>
+        /// Crea una nueva Categoría desde un Datareader.
+        /// </summary>
+        /// <param name="dr">Objeto DataReader.</param>
+        /// <returns>Retorna un objeto Categoria.</returns>		
+        private static CartItemDTO LoadCartItemDTODTO(IDataReader dr)
         {
-            var cart = new Cart
+            var CartItemDTO = new CartItemDTO
             {
-                Id = GetDataValue<int>(dr, "Id"),
-                Cookie = GetDataValue<string>(dr, "Cookie"),
-                CartDate = GetDataValue<DateTime>(dr, "CartDate"),
-                ItemCount = GetDataValue<int>(dr, "ItemCount"),
-                Rowid = GetDataValue<Guid>(dr, "Rowid"),
-                CreatedOn = GetDataValue<DateTime>(dr, "CreatedOn"),
-                CreatedBy = GetDataValue<int>(dr, "CreatedBy"),
-                ChangedOn = GetDataValue<DateTime>(dr, "ChangedOn"),
-                ChangedBy = GetDataValue<int>(dr, "ChangedBy")
+                //Id = GetDataValue<int>(dr, "Id"),
+                //FirstName = GetDataValue<string>(dr, "FirstName"),
+                //LastName = GetDataValue<string>(dr, "LastName"),
+                //CategoryId = GetDataValue<int>(dr, "CategoryId"),
+                //CategoryName = GetDataValue<string>(dr, "CategoryName"),
+                //CountryId = GetDataValue<int>(dr, "CountryId"),
+                //CountryName = GetDataValue<string>(dr, "CountryName"),
+                //Description = GetDataValue<string>(dr, "Description"),
+                //TotalProducts = GetDataValue<int>(dr, "TotalProducts"),
+                //Rowid = GetDataValue<Guid>(dr, "Rowid"),
+                //CreatedOn = GetDataValue<DateTime>(dr, "CreatedOn"),
+                //CreatedBy = GetDataValue<int>(dr, "CreatedBy"),
+                //ChangedOn = GetDataValue<DateTime>(dr, "ChangedOn"),
+                //ChangedBy = GetDataValue<int>(dr, "ChangedBy")
             };
-            return cart;
+            return CartItemDTO;
+        }
+
+
+        /// <summary>
+        /// Crea una nueva Categoría desde un Datareader.
+        /// </summary>
+        /// <param name="dr">Objeto DataReader.</param>
+        /// <returns>Retorna un objeto Categoria.</returns>		
+        private static CartItemDTO LoadCartItemDTO(IDataReader dr)
+        {
+            var CartItemDTO = new CartItemDTO
+            {
+                //Id = GetDataValue<int>(dr, "Id"),
+                //FirstName = GetDataValue<string>(dr, "FirstName"),
+                //LastName = GetDataValue<string>(dr, "LastName"),
+                //CategoryId = GetDataValue<int>(dr, "CategoryId"),
+                ////CategoryName = GetDataValue<string>( dr, "Name" ),
+                //CountryId = GetDataValue<int>(dr, "CountryId"),
+                ////CountryName = GetDataValue<string>( dr, "Name" ),
+                //Description = GetDataValue<string>(dr, "Description"),
+                //TotalProducts = GetDataValue<int>(dr, "TotalProducts"),
+                //Rowid = GetDataValue<Guid>(dr, "Rowid"),
+                //CreatedOn = GetDataValue<DateTime>(dr, "CreatedOn"),
+                //CreatedBy = GetDataValue<int>(dr, "CreatedBy"),
+                //ChangedOn = GetDataValue<DateTime>(dr, "ChangedOn"),
+                //ChangedBy = GetDataValue<int>(dr, "ChangedBy")
+            };
+            return CartItemDTO;
         }
     }
 }

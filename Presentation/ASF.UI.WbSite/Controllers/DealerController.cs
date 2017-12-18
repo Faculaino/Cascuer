@@ -15,34 +15,33 @@ namespace ASF.UI.WbSite.Controllers
         // GET: Dealer
         public ActionResult Index()
         {
-            var cp = new DealerProcess();
-            //var lista = DataCache.Instance.DealerList();
-            return View(cp.SelectList());
-            //return View(lista);
+            //var cp = new DealerProcess();
+            var lista = DataCache.Instance.DealerListDTO();
+            //return View(cp.SelectList());
+            return View(lista);
         }
 
         // GET: Dealer/Create
-        public ActionResult Create()
+        public ActionResult Create ()
         {
             var category = new CategoryProcess().SelectList();
             var country = new CountryProcess().SelectList();
 
             ViewBag.Category = new SelectList(category, "Id", "Name");
-            ViewBag.Country = new SelectList( country, "Id", "Name");
+            ViewBag.Country = new SelectList(country, "Id", "Name");
 
             return View();
         }
 
         // POST: Dealer/Create
         [HttpPost]
-        public ActionResult Create(Dealer Dealer)
+        public ActionResult Create(Dealer dealer)
         {
             try
             {
                 var cp = new DealerProcess();
-                cp.insertDealer(Dealer);
-
-                //DataCache.Instance.DealerListRemove();
+                cp.insertDealer(dealer);
+                DataCache.Instance.DealerListRemoveDTO();
                 return RedirectToAction("Index");
             }
             catch
@@ -52,15 +51,14 @@ namespace ASF.UI.WbSite.Controllers
         }
 
         // GET: Dealer/Details
-        public ActionResult Details(int id)
+        public ActionResult Details (int id)
         {
             var cp = new DealerProcess();
-
             return View(cp.findDealer(id));
         }
 
         // GET: Dealer/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult Edit (int id)
         {
 
             var category = new CategoryProcess().SelectList();
@@ -70,20 +68,19 @@ namespace ASF.UI.WbSite.Controllers
             ViewBag.Country = new SelectList( country, "Id", "Name", id );
 
             var cp = new DealerProcess();
-
             return View(cp.findDealer(id));
         }
 
         // POST: Dealer/Edit/5
         [HttpPost]
-        public ActionResult Edit(Dealer Dealer)
+        public ActionResult Edit(Dealer dealer)
         {
             try
             {
                 var cp = new DealerProcess();
-                cp.editDealer(Dealer);
-                //DataCache.Instance.DealerListRemove();
-                return RedirectToAction("Index");
+                cp.editDealer( dealer );
+                DataCache.Instance.DealerListRemoveDTO();
+                return RedirectToAction( "Index" );
             }
             catch
             {
@@ -92,23 +89,23 @@ namespace ASF.UI.WbSite.Controllers
         }
 
         // GET: Dealer/Delete/5
-        public ActionResult Delete(int id)
+        public ActionResult Delete ( int id )
         {
             var cp = new DealerProcess();
 
-            return View(cp.findDealer(id));
+            return View( cp.findDealer( id ) );
         }
 
         // POST: Dealer/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, Dealer Dealer)
+        public ActionResult Delete(int id, Dealer dealer)
         {
             try
             {
                 var cp = new DealerProcess();
-                cp.deleteDealer(id);
-                //DataCache.Instance.DealerListRemove();
-                return RedirectToAction("Index");
+                cp.deleteDealer( id );
+                DataCache.Instance.DealerListRemoveDTO();
+                return RedirectToAction( "Index" );
             }
             catch
             {

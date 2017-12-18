@@ -1,5 +1,0 @@
-C:\Users\facun\Desktop\Cascuer\bin\ASF.Entities.dll
-C:\Users\facun\Desktop\Cascuer\bin\ASF.Entities.pdb
-C:\Users\facun\Desktop\Cascuer\Shared\ASF.Entities\obj\Release\ASF.Entities.csprojResolveAssemblyReference.cache
-C:\Users\facun\Desktop\Cascuer\Shared\ASF.Entities\obj\Release\ASF.Entities.dll
-C:\Users\facun\Desktop\Cascuer\Shared\ASF.Entities\obj\Release\ASF.Entities.pdb

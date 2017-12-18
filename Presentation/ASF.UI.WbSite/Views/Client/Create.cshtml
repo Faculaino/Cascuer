@@ -7,10 +7,10 @@
 <h2>Create</h2>
 
 
-@using (Html.BeginForm())
+@using (Html.BeginForm()) 
 {
     @Html.AntiForgeryToken()
-
+    
     <div class="form-horizontal">
         <h4>Client</h4>
         <hr />
@@ -39,6 +39,13 @@
             </div>
         </div>
 
+        @*<div class="form-group">
+            @Html.LabelFor(model => model.CountryId, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CountryId, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.CountryId, "", new { @class = "text-danger" })
+            </div>
+        </div>*@
         <div class="form-group">
             @Html.LabelFor(model => model.CountryId, "Country", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -73,6 +80,14 @@
             </div>
         </div>
 
+        @*<div class="form-group">
+            @Html.HiddenFor( model => model.Rowid, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.HiddenFor( model => model.Rowid, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Rowid, "", new { @class = "text-danger" })
+            </div>
+        </div>*@
+
         <div class="form-group">
             @Html.LabelFor(model => model.OrderCount, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -80,6 +95,38 @@
                 @Html.ValidationMessageFor(model => model.OrderCount, "", new { @class = "text-danger" })
             </div>
         </div>
+
+        @*<div class="form-group">
+            @Html.HiddenFor(model => model.CreatedOn, htmlAttributes: new { @class = "control-Hidden col-md-2" })
+            <div class="col-md-10">
+                @Html.HiddenFor( model => model.CreatedOn, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.CreatedOn, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.HiddenFor(model => model.CreatedBy, htmlAttributes: new { @class = "control-Hidden col-md-2" })
+            <div class="col-md-10">
+                @Html.HiddenFor(model => model.CreatedBy, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.CreatedBy, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.HiddenFor(model => model.ChangedOn, htmlAttributes: new { @class = "control-Hidden col-md-2" })
+            <div class="col-md-10">
+                @Html.HiddenFor(model => model.ChangedOn, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ChangedOn, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.HiddenFor(model => model.ChangedBy, htmlAttributes: new { @class = "control-Hidden col-md-2" })
+            <div class="col-md-10">
+                @Html.HiddenFor(model => model.ChangedBy, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ChangedBy, "", new { @class = "text-danger" })
+            </div>
+        </div>*@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
@@ -94,6 +141,6 @@
 </div>
 
 @*@section Scripts {
-        @Scripts.Render("~/bundles/jqueryval")
-    }*@
+    @Scripts.Render("~/bundles/jqueryval")
+}*@
 @Html.Partial("_Espacio2")

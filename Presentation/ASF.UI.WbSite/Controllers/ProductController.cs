@@ -1,45 +1,38 @@
-﻿using ASF.Entities;
-using ASF.UI.Process;
-using ASF.UI.WbSite.Constants.HomeController;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using ASF.UI.Process;
+using ASF.Entities;
+using ASF.UI.WbSite.Services.Cache;
 
 namespace ASF.UI.WbSite.Controllers
 {
     [AllowAnonymous]
     public class ProductController : Controller
     {
-        
+        // GET: Product
         public ActionResult Index()
         {
-            var pp = new ProductProcess();
-            return View(pp.SelectList());
+            //var pp = new ProductProcess();
+            var lista = DataCache.Instance.ProductList();
+            //return View(pp.SelectList());
+            return View(lista);
         }
 
-        // GET: Dealer/Create
         public ActionResult Create()
         {
-            var dealer = new DealerProcess().SelectList();
-
-            ViewBag.Dealer = new SelectList(dealer, "Id", "FirstName");
-
             return View();
         }
-
-        // POST: Dealer/Create
         [HttpPost]
-        public ActionResult Create(Product product, string Dealer)
+        public ActionResult Create(Product product)
         {
             try
             {
                 var pp = new ProductProcess();
-
-                product.DealerId = Int32.Parse(Dealer);
-
                 pp.insertProduct(product);
+                DataCache.Instance.ProductListRemove();
 
                 return RedirectToAction("Index");
             }
@@ -48,6 +41,7 @@ namespace ASF.UI.WbSite.Controllers
                 return View();
             }
         }
+
         public ActionResult Details(int id)
         {
             var pp = new ProductProcess();
@@ -62,12 +56,13 @@ namespace ASF.UI.WbSite.Controllers
             return View(pp.findProduct(id));
         }
         [HttpPost]
-        public ActionResult Edit(Product product)
+        public ActionResult Edit(Product Product)
         {
             try
             {
                 var pp = new ProductProcess();
-                pp.editProduct(product);
+                pp.editProduct(Product);
+                DataCache.Instance.ProductListRemove();
                 return RedirectToAction("Index");
             }
             catch
@@ -83,12 +78,13 @@ namespace ASF.UI.WbSite.Controllers
             return View(pp.findProduct(id));
         }
         [HttpPost]
-        public ActionResult Delete(int id, Product product)
+        public ActionResult Delete(int id, Product Product)
         {
             try
             {
                 var pp = new ProductProcess();
                 pp.deleteProduct(id);
+                DataCache.Instance.ProductListRemove();
                 return RedirectToAction("Index");
             }
             catch

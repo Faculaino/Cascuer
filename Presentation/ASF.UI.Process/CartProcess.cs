@@ -15,35 +15,43 @@ namespace ASF.UI.Process
 {
     public class CartProcess : ProcessComponent
     {
-        public List<Cart> SelectList()
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public List<CartItemDTO> SelectList()
         {
-            var response = HttpGet<AllResponse>("rest/Cart/All", new Dictionary<string, object>(), MediaType.Json);
-            return response.ResulstCart;
+            var response = HttpGet<AllResponse>("rest/CartItemDTO/All", new Dictionary<string, object>(), MediaType.Json);
+            return response.ResultCartItemDTO;
         }
 
-        public void insertCart(Cart cart)
+        public void insertCartItemDTO(CartItemDTO CartItemDTO)
         {
-            HttpPost<Cart>("rest/Cart/Add", cart, MediaType.Json);
+
+            ProcessComponent.HttpPost<CartItemDTO>("rest/CartItemDTO/Add", CartItemDTO, MediaType.Json);
+
         }
-        public Cart findCart(int id)
+
+        public CartItemDTO findCartItemDTO(int id)
         {
             var dic = new Dictionary<string, object>();
             dic.Add("Id", id);
-            var response = HttpGet<FindResponse>("rest/Cart/Find", dic, MediaType.Json);
-            return response.ResultCart;
+            var response = HttpGet<FindResponse>("rest/CartItemDTO/Find", dic, MediaType.Json);
+            return response.ResultCartItemDTO;
 
         }
 
-        public void editCart(Cart cart)
+        public void editCartItemDTO(CartItemDTO CartItemDTO)
         {
-            HttpPost<Cart>("rest/Cart/Edit", cart, MediaType.Json);
+            ProcessComponent.HttpPost<CartItemDTO>("rest/CartItemDTO/Edit", CartItemDTO, MediaType.Json);
         }
 
-        public void deteleCart(int id)
+        public void deleteCartItemDTO(int id)
         {
             var dic = new Dictionary<string, object>();
             dic.Add("Id", id);
-            HttpGet<Cart>("rest/Cart/Remove/{id}", dic, MediaType.Json);
+            ProcessComponent.HttpGet<CartItemDTO>("rest/CartItemDTO/Remove/{id}", dic, MediaType.Json);
         }
     }
 }

@@ -42,6 +42,7 @@ namespace ASF.UI.WbSite.Services.Cache
         public List<Category> CategoryList()
         {
             //_cacheServices.Remove(DataCacheSetting.Category.Key);
+
             var lista = _cacheServices.GetOrAdd(
                 DataCacheSetting.Category.Key,
                 () =>
@@ -98,7 +99,7 @@ namespace ASF.UI.WbSite.Services.Cache
                 DataCacheSetting.Country.SlidingExpiration);
         }
 
-        //public List<Dealer> DealerList()
+        //public List<DealerDTO> DealerList()
         //{
         //    //_cacheServices.Remove(DataCacheSetting.Dealer.Key);
 
@@ -114,6 +115,22 @@ namespace ASF.UI.WbSite.Services.Cache
 
         //}
 
+        public List<DealerDTO> DealerListDTO()
+        {
+            //_cacheServices.Remove(DataCacheSetting.Dealer.Key);
+
+            var lista = _cacheServices.GetOrAdd(
+                DataCacheSetting.DealerDTO.Key,
+                () =>
+                {
+                    var dp = new DealerProcess();
+                    return dp.SelectList();
+                },
+                DataCacheSetting.DealerDTO.SlidingExpiration);
+            return lista;
+
+        }
+
         //public void DealerListRemove()
         //{
         //    _cacheServices.Remove(DataCacheSetting.Dealer.Key);
@@ -127,6 +144,20 @@ namespace ASF.UI.WbSite.Services.Cache
         //        },
         //        DataCacheSetting.Dealer.SlidingExpiration);
         //}
+
+        public void DealerListRemoveDTO ()
+        {
+            _cacheServices.Remove( DataCacheSetting.DealerDTO.Key );
+
+            var lista = _cacheServices.GetOrAdd(
+                DataCacheSetting.DealerDTO.Key,
+                () =>
+                {
+                    var dp = new DealerProcess();
+                    return dp.SelectList();
+                },
+                DataCacheSetting.DealerDTO.SlidingExpiration );
+        }
 
         public List<Order> OrderList ()
         {
@@ -182,6 +213,36 @@ namespace ASF.UI.WbSite.Services.Cache
                     return cp.SelectList();
                 },
                 DataCacheSetting.Client.SlidingExpiration );
+        }
+
+        public List<Product> ProductList()
+        {
+            //_cacheServices.Remove(DataCacheSetting.Product.Key);
+
+            var lista = _cacheServices.GetOrAdd(
+                DataCacheSetting.Product.Key,
+                () =>
+                {
+                    var cp = new ProductProcess();
+                    return cp.SelectList();
+                },
+                DataCacheSetting.Product.SlidingExpiration);
+            return lista;
+
+        }
+
+        public void ProductListRemove()
+        {
+            _cacheServices.Remove(DataCacheSetting.Product.Key);
+
+            var lista = _cacheServices.GetOrAdd(
+                DataCacheSetting.Product.Key,
+                () =>
+                {
+                    var cp = new ProductProcess();
+                    return cp.SelectList();
+                },
+                DataCacheSetting.Product.SlidingExpiration);
         }
     }
 }

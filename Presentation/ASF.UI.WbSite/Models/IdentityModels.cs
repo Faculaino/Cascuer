@@ -6,15 +6,6 @@ using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace ASF.UI.WbSite.Models
 {
-    public class AppUser
-    {
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public string Email { get; set; }
-    }
-
-
-
     // You can add profile data for the user by adding more properties to your ApplicationUser class, please visit http://go.microsoft.com/fwlink/?LinkID=317594 to learn more.
     public class ApplicationUser : IdentityUser
     {
@@ -38,9 +29,5 @@ namespace ASF.UI.WbSite.Models
         {
             return new ApplicationDbContext();
         }
-
-        public System.Data.Entity.DbSet<ASF.Entities.Product> Products { get; set; }
-
-        public System.Data.Entity.DbSet<ASF.Entities.Client> Clients { get; set; }
     }
 }

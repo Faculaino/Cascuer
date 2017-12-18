@@ -1,0 +1,30 @@
+﻿#loginForm{
+    margin-left:50%;
+    margin-top:-50px;
+}
+
+#tituloLogin{
+    text-align:center;
+    margin-top:100px;
+}
+
+#cuentaLocal{
+    text-align:center;
+}
+
+#registerForm{
+    margin-top:-50px;
+}
+
+#loginOptions{
+    margin-right:70px;
+
+}
+
+#Pie{
+    text-align:center;
+}
+
+#PieIndex{
+    margin-top:-50px;
+}

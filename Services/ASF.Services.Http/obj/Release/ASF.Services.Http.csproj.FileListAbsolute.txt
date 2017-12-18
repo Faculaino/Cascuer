@@ -1,6 +1,0 @@
-C:\Users\facun\Desktop\Cascuer\bin\ASF.Services.Http.dll.config
-C:\Users\facun\Desktop\Cascuer\bin\ASF.Services.Http.dll
-C:\Users\facun\Desktop\Cascuer\bin\ASF.Services.Http.pdb
-C:\Users\facun\Desktop\Cascuer\Services\ASF.Services.Http\obj\Release\ASF.Services.Http.csprojResolveAssemblyReference.cache
-C:\Users\facun\Desktop\Cascuer\Services\ASF.Services.Http\obj\Release\ASF.Services.Http.dll
-C:\Users\facun\Desktop\Cascuer\Services\ASF.Services.Http\obj\Release\ASF.Services.Http.pdb

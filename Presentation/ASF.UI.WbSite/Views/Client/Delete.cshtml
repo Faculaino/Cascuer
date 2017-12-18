@@ -3,7 +3,7 @@
 @{
     ViewBag.Title = "Delete";
 }
-
+@Html.Partial("_Espacio1")
 <h2>Delete</h2>
 
 <h3>Are you sure you want to delete this?</h3>
@@ -68,7 +68,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Rowid)
+            @Html.HiddenFor(model => model.Rowid)
         </dt>
 
         <dd>
@@ -84,35 +84,35 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.CreatedOn)
+            @Html.HiddenFor(model => model.CreatedOn)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.CreatedOn)
+            @Html.HiddenFor(model => model.CreatedOn)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.CreatedBy)
+            @Html.HiddenFor(model => model.CreatedBy)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.CreatedBy)
+            @Html.HiddenFor(model => model.CreatedBy)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.ChangedOn)
+            @Html.HiddenFor(model => model.ChangedOn)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.ChangedOn)
+            @Html.HiddenFor(model => model.ChangedOn)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.ChangedBy)
+            @Html.HiddenFor(model => model.ChangedBy)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.ChangedBy)
+            @Html.HiddenFor(model => model.ChangedBy)
         </dd>
 
     </dl>
@@ -126,3 +126,4 @@
         </div>
     }
 </div>
+@Html.Partial("_Espacio2")

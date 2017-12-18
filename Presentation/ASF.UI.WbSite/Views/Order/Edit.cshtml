@@ -3,7 +3,7 @@
 @{
     ViewBag.Title = "Edit";
 }
-
+@Html.Partial("_Espacio1")
 <h2>Edit</h2>
 
 
@@ -66,44 +66,44 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Rowid, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.HiddenFor(model => model.Rowid, htmlAttributes: new { @class = "control-Hidden col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Rowid, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.HiddenFor(model => model.Rowid, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Rowid, "", new { @class = "text-danger" })
             </div>
         </div>
 
-        @*<div class="form-group">
-            @Html.LabelFor(model => model.CreatedOn, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="form-group">
+            @Html.HiddenFor(model => model.CreatedOn, htmlAttributes: new { @class = "control-Hidden col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.CreatedOn, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.HiddenFor(model => model.CreatedOn, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.CreatedOn, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.CreatedBy, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.HiddenFor(model => model.CreatedBy, htmlAttributes: new { @class = "control-Hidden col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.CreatedBy, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.HiddenFor(model => model.CreatedBy, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.CreatedBy, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.ChangedOn, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.HiddenFor(model => model.ChangedOn, htmlAttributes: new { @class = "control-Hidden col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.ChangedOn, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.HiddenFor(model => model.ChangedOn, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.ChangedOn, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.ChangedBy, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.HiddenFor(model => model.ChangedBy, htmlAttributes: new { @class = "control-Hidden col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.ChangedBy, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.HiddenFor(model => model.ChangedBy, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.ChangedBy, "", new { @class = "text-danger" })
             </div>
-        </div>*@
+        </div>
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
@@ -117,6 +117,8 @@
     @Html.ActionLink("Back to List", "Index")
 </div>
 
-@section Scripts {
+@*@section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
-}
+}*@
+
+@Html.Partial("_Espacio2")

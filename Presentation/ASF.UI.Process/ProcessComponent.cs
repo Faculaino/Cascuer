@@ -97,7 +97,6 @@ namespace ASF.UI.Process
                 return value;
 
             }
-
         }
     }
 }

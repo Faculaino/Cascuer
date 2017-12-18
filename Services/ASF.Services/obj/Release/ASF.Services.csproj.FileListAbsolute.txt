@@ -1,5 +1,0 @@
-C:\Users\facun\Desktop\Cascuer\bin\ASF.Services.dll
-C:\Users\facun\Desktop\Cascuer\bin\ASF.Services.pdb
-C:\Users\facun\Desktop\Cascuer\Services\ASF.Services\obj\Release\ASF.Services.csprojResolveAssemblyReference.cache
-C:\Users\facun\Desktop\Cascuer\Services\ASF.Services\obj\Release\ASF.Services.dll
-C:\Users\facun\Desktop\Cascuer\Services\ASF.Services\obj\Release\ASF.Services.pdb

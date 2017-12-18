@@ -40,7 +40,7 @@ namespace ASF.Services.Contracts
         public  Product ResultProduct { get; set; }
 
         [DataMember]
-        public Cart ResultCart { get; set; }
+        public CartItemDTO ResultCartItemDTO { get; set; }
     }
 }
 

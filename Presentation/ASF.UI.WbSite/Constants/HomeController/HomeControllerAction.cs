@@ -17,7 +17,5 @@
         public const string RobotsText = "RobotsText";
 
         public const string SitemapXml = "SitemapXml";
-
-        public const string Category = "Category";
     }
 }

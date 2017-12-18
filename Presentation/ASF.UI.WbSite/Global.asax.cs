@@ -1,25 +1,4 @@
-﻿//using System;
-//using System.Collections.Generic;
-//using System.Linq;
-//using System.Web;
-//using System.Web.Mvc;
-//using System.Web.Optimization;
-//using System.Web.Routing;
-
-//namespace ASF.UI.WbSite
-//{
-//    public class MvcApplication : System.Web.HttpApplication
-//    {
-//        protected void Application_Start()
-//        {
-//            AreaRegistration.RegisterAllAreas();
-//            FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
-//            RouteConfig.RegisterRoutes(RouteTable.Routes);
-//        }
-//    }
-//}
-
-using ASF.UI.WbSite.Services.Logging;
+﻿using ASF.UI.WbSite.Services.Logging;
 
 namespace ASF.UI.WbSite
 {
@@ -40,11 +19,10 @@ namespace ASF.UI.WbSite
 
             ConfigureViewEngines();
             ConfigureAntiForgeryTokens();
-
+            
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
-            FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
         }
 
         /// <summary>
@@ -74,7 +52,7 @@ namespace ASF.UI.WbSite
             CspViolationException exception = new CspViolationException(violationReportString);
             DependencyResolver.Current.GetService<ILoggingService>().Log(exception);
         }
-
+        
         /// <summary>
         /// Configures the view engines. By default, Asp.Net MVC includes the Web Forms (WebFormsViewEngine) and 
         /// Razor (RazorViewEngine) view engines that supports both C# (.cshtml) and VB (.vbhtml). You can remove view 

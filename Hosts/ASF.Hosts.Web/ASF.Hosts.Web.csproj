@@ -82,7 +82,7 @@
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
     <Reference Include="WebActivatorEx, Version=2.0.0.0, Culture=neutral, PublicKeyToken=7b26dc2a43f6a0d4, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\WebActivatorEx.2.2.0\lib\net40\WebActivatorEx.dll</HintPath>
+      <HintPath>..\..\packages\WebActivatorEx.2.0\lib\net40\WebActivatorEx.dll</HintPath>
       <Private>True</Private>
     </Reference>
   </ItemGroup>
@@ -129,6 +129,7 @@
     <Content Include="web.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Properties\PublishProfiles\appserver.pubxml" />
     <None Include="Properties\PublishProfiles\LeatherGood.pubxml" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>

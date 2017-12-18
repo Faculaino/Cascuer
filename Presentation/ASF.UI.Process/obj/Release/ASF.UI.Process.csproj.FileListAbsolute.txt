@@ -1,5 +1,0 @@
-C:\Users\facun\Desktop\Cascuer\bin\ASF.UI.Process.dll
-C:\Users\facun\Desktop\Cascuer\bin\ASF.UI.Process.pdb
-C:\Users\facun\Desktop\Cascuer\Presentation\ASF.UI.Process\obj\Release\ASF.UI.Process.csprojResolveAssemblyReference.cache
-C:\Users\facun\Desktop\Cascuer\Presentation\ASF.UI.Process\obj\Release\ASF.UI.Process.dll
-C:\Users\facun\Desktop\Cascuer\Presentation\ASF.UI.Process\obj\Release\ASF.UI.Process.pdb

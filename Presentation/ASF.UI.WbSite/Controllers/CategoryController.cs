@@ -26,12 +26,12 @@ namespace ASF.UI.WbSite.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult Create(Category categoria)
+        public ActionResult Create(Category categroy)
         {
             try
             {
                 var cp = new CategoryProcess();
-                cp.insertCategory(categoria);
+                cp.insertCategory(categroy);
                 DataCache.Instance.CategoryListRemove();
             
                 return RedirectToAction("Index");
@@ -56,12 +56,12 @@ namespace ASF.UI.WbSite.Controllers
             return View(cp.findCategory(id));
         }
         [HttpPost]
-        public ActionResult Edit(Category categoria)
+        public ActionResult Edit(Category category)
         {
             try
             {
                 var cp = new CategoryProcess();
-                cp.editCategory(categoria);
+                cp.editCategory(category);
                 DataCache.Instance.CategoryListRemove();
                 return RedirectToAction("Index");
              }
@@ -78,7 +78,7 @@ namespace ASF.UI.WbSite.Controllers
             return View(cp.findCategory(id));
         }
         [HttpPost]
-        public ActionResult Delete(int id, Category categoria)
+        public ActionResult Delete(int id, Category category)
         {
             try
             {
