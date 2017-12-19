@@ -23,7 +23,16 @@
 
 #Pie{
     text-align:center;
+    /*margin-right:70px;*/
+    margin-top:70px;
 }
+
+#Pie .img-circle{
+    width:40px;
+    height:40px;
+}
+
+
 
 #PieIndex{
     margin-top:-50px;

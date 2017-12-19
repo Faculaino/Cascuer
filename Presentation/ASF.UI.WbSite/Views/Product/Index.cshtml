@@ -27,10 +27,9 @@
                 @*<div class="col-sm-2">*@
 
                     <div class="col-xs-3">
-
                         <img src=@Url.Content("~/Images/" + item.Image) style="width:150px; height:150px;" />
                         <h4 id="nombre" style="margin-top:10px;">@Html.DisplayFor(modelItem => item.Title)</h4>
-                        <p id="description">@Html.DisplayFor(modelItem => item.Description)</p>
+                        @Html.DisplayFor(modelItem => item.Description)
                         <p id="precio"> $ @Html.DisplayFor(modelItem => item.Price)</p>
                         <p>@Html.ActionLink("Comprar", "addCart", "Cart", new { id = item.Id }, new { @class = "btn btn-primary" }) @*@Html.ActionLink("Leer más", "Details", new { id = item.Id })*@ </p>
                     </div>

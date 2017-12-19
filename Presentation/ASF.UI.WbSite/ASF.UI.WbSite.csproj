@@ -562,11 +562,17 @@
     <Content Include="Images\Cinturon.jpg" />
     <Content Include="Images\Combo1.jpg" />
     <Content Include="Images\cuero.jpg" />
+    <Content Include="Images\face1.JPG" />
     <Content Include="Images\facebook.png" />
     <Content Include="Images\google.png" />
+    <Content Include="Images\google1.JPG" />
+    <Content Include="Images\insta1.JPG" />
     <Content Include="Images\instagram.png" />
+    <Content Include="Images\linke1.JPG" />
     <Content Include="Images\pinterest.jpg" />
+    <Content Include="Images\tw1.JPG" />
     <Content Include="Images\twitter.png" />
+    <Content Include="Images\you1.JPG" />
     <Content Include="Images\youtube.png" />
     <Content Include="Images\Zapatos.jpg" />
     <Content Include="js\bootstrap.js" />
