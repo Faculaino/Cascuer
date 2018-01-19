@@ -33,9 +33,6 @@
                         <p id="precio"> $ @Html.DisplayFor(modelItem => item.Price)</p>
                         <p>@Html.ActionLink("Comprar", "addCart", "Cart", new { id = item.Id }, new { @class = "btn btn-primary" }) @*@Html.ActionLink("Leer más", "Details", new { id = item.Id })*@ </p>
                     </div>
-
-              
-
             }
 
             <div style="clear:both;">

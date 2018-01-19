@@ -18,6 +18,11 @@ namespace ASF.UI.WbSite.Controllers
             return View(Session["Carrito"]);
         }
 
+        public ActionResult PaymentMethods()
+        {
+            return View();
+        }
+
         public ActionResult addCart(int id)
         {
             var producto = new ProductProcess().findProduct(id);
@@ -147,12 +152,47 @@ namespace ASF.UI.WbSite.Controllers
             }
         }
 
+        [AllowAnonymous]
+        public ActionResult mostrarCarrito()
+        {
+            return View(Session["Carrito"]);
+        }
+
+        [Authorize]
+        public ActionResult finalizarCompra()
+        {
+            List<CartItemDTO> compras = (List<CartItemDTO>)Session["Carrito"];
+
+            if (compras != null && compras.Count > 0)
+            {
+                //CartItem cartitem = new CartItem();
+                //List<CartItem> listcartitem = new List<CartItem>();
+
+                foreach (var item in compras)
+                {
+                    //cartitem.ProductId = item.ProductId;
+                    //cartitem.Quantity = item.Quantity;
+                    //cartitem.Price = item.Price;
+
+                    //listcartitem.Add(cartitem);
+                    //CartProcess cp = new CartProcess();
+                    //cp.insertCartItemDTO(item);
+                }
+                Session.RemoveAll();
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Index", "Product");
+            }
+        }
+
         // GET: Cart/Delete/5
         public ActionResult Delete(int id)
         {
             List<CartItemDTO> cartItem = (List<CartItemDTO>)Session["Carrito"];
             cartItem.RemoveAt(controlarId(id));
-            return View("addCart");
+            return View("Index");
         }
 
         // POST: Cart/Delete/5

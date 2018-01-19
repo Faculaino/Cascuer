@@ -1,0 +1,69 @@
+﻿
+
+
+
+@Html.Partial("_Espacio1")
+<div class="col-md-4" id="PagoTarjeta">
+    <div class="panel panel-success">
+        <div class="panel-heading panel-title">Tarjeta de Crédito</div>
+        <div class="panel-body">
+
+            <div class="form-group col-md-7">
+                @{
+                    var tipoTarjeta = new List<SelectListItem>()
+                            {
+                                new SelectListItem() {Text = "Visa", Value = "Visa"},
+                                new SelectListItem() {Text = "American Express", Value = "American Express"},
+                                new SelectListItem() {Text = "MasterCard", Value = "MasterCard"}
+                            };
+                }
+                <p>Marca</p>
+                <div class="input-group">
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-credit-card"></span>
+                    </span>
+                </div>
+                <br />
+
+                <label>Número</label>
+
+                <div class="input-group">
+                    <input type="text" required class="form-control" placeholder="xxxx">
+                    <span class="input-group-addon"></span>
+                    <input type="text" required class="form-control" placeholder="xxxx">
+                    <span class="input-group-addon"></span>
+                    <input type="text" required class="form-control" placeholder="xxxx">
+                    <span class="input-group-addon"></span>
+                    <input type="text" required class="form-control" placeholder="xxxx">
+                </div>
+
+                <br />
+                <label>Fecha que Expira</label>
+                <div class="input-group">
+                    <input type="text" required class="form-control" placeholder="MM">
+                    <span class="input-group-addon">/</span>
+                    <input type="text" required class="form-control" placeholder="YY">
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="col-md-4" id="PagoPayPal">
+    <div class="panel panel-success">
+        <div class="panel-heading panel-title">PayPal</div>
+        <div class="panel-body">
+            <div class="form-group col-md-7">
+                <p>Paypal</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-4" style="float:right">
+        @Html.ActionLink("Confirmar", "finishCart", "Cart", null, new { @class = "btn btn-primary" })
+    </div>
+</div>
+
+@Html.Partial("_Espacio2")

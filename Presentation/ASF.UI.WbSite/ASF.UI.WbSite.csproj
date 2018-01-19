@@ -691,6 +691,7 @@
     <Content Include="Views\Cart\addCart.cshtml" />
     <Content Include="Views\Cart\finishCart.cshtml" />
     <Content Include="Views\Cart\Index.cshtml" />
+    <Content Include="Views\Cart\PaymentMethods.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
