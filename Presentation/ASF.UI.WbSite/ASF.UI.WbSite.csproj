@@ -184,6 +184,10 @@
       <HintPath>..\..\packages\Quartz.2.6.0\lib\net40\Quartz.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="SendGrid.SmtpApi, Version=1.1.3.0, Culture=neutral, PublicKeyToken=55aa52d3c3c0d2b2, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\SendGrid.SmtpApi.1.1.3\lib\net40\SendGrid.SmtpApi.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -569,6 +573,7 @@
     <Content Include="Images\insta1.JPG" />
     <Content Include="Images\instagram.png" />
     <Content Include="Images\linke1.JPG" />
+    <Content Include="Images\PayPal.JPG" />
     <Content Include="Images\pinterest.jpg" />
     <Content Include="Images\tw1.JPG" />
     <Content Include="Images\twitter.png" />
@@ -598,11 +603,9 @@
     <Content Include="Scripts\jquery-3.2.1.min.js" />
     <Content Include="Scripts\jquery-3.2.1.slim.js" />
     <Content Include="Scripts\jquery-3.2.1.slim.min.js" />
-    <Content Include="Scripts\jquery-3.2.1.slim.min.map" />
-    <Content Include="Scripts\jquery-3.2.1.min.map" />
-    <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery-ui-1.12.1.js" />
     <Content Include="Scripts\jquery-ui-1.12.1.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -692,6 +695,8 @@
     <Content Include="Views\Cart\finishCart.cshtml" />
     <Content Include="Views\Cart\Index.cshtml" />
     <Content Include="Views\Cart\PaymentMethods.cshtml" />
+    <Content Include="Scripts\jquery-3.2.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.2.1.min.map" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

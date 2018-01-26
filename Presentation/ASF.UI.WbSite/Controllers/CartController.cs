@@ -18,10 +18,50 @@ namespace ASF.UI.WbSite.Controllers
             return View(Session["Carrito"]);
         }
 
+        //public ActionResult PaymentMethods()
+        //{
+        //    return View();
+        //}
+
+        //[Authorize]
+        //public ActionResult finalizarCompra()
+        //{
+        //    List<CartItemDTO> compras = (List<CartItemDTO>)Session["Carrito"];
+            
+        //    Session.RemoveAll();
+        //    return View();
+
+        //}
+
+       
         public ActionResult PaymentMethods()
         {
-            return View();
+            List<CartItemDTO> compras = (List<CartItemDTO>)Session["Carrito"];
+
+            if (compras != null && compras.Count > 0)
+            {
+                //CartItem cartitem = new CartItem();
+                //List<CartItem> listcartitem = new List<CartItem>();
+
+                foreach (var item in compras)
+                {
+                    //cartitem.ProductId = item.ProductId;
+                    //cartitem.Quantity = item.Quantity;
+                    //cartitem.Price = item.Price;
+
+                    //listcartitem.Add(cartitem);
+                    //CartProcess cp = new CartProcess();
+                    //cp.insertCartItemDTO(item);
+                }
+                Session.RemoveAll();
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Index", "Product");
+            }
         }
+
 
         public ActionResult addCart(int id)
         {
@@ -67,7 +107,7 @@ namespace ASF.UI.WbSite.Controllers
             }
             return -1;
         }
-
+        
         public ActionResult finishCart()
         {
             List<CartItemDTO> compras = (List<CartItemDTO>)Session["Carrito"];
@@ -152,40 +192,40 @@ namespace ASF.UI.WbSite.Controllers
             }
         }
 
-        [AllowAnonymous]
-        public ActionResult mostrarCarrito()
-        {
-            return View(Session["Carrito"]);
-        }
+        //[AllowAnonymous]
+        //public ActionResult mostrarCarrito()
+        //{
+        //    return View(Session["Carrito"]);
+        //}
 
-        [Authorize]
-        public ActionResult finalizarCompra()
-        {
-            List<CartItemDTO> compras = (List<CartItemDTO>)Session["Carrito"];
+        //[Authorize]
+        //public ActionResult finalizarCompra()
+        //{
+        //    List<CartItemDTO> compras = (List<CartItemDTO>)Session["Carrito"];
 
-            if (compras != null && compras.Count > 0)
-            {
-                //CartItem cartitem = new CartItem();
-                //List<CartItem> listcartitem = new List<CartItem>();
+        //    if (compras != null && compras.Count > 0)
+        //    {
+        //        //CartItem cartitem = new CartItem();
+        //        //List<CartItem> listcartitem = new List<CartItem>();
 
-                foreach (var item in compras)
-                {
-                    //cartitem.ProductId = item.ProductId;
-                    //cartitem.Quantity = item.Quantity;
-                    //cartitem.Price = item.Price;
+        //        foreach (var item in compras)
+        //        {
+        //            //cartitem.ProductId = item.ProductId;
+        //            //cartitem.Quantity = item.Quantity;
+        //            //cartitem.Price = item.Price;
 
-                    //listcartitem.Add(cartitem);
-                    //CartProcess cp = new CartProcess();
-                    //cp.insertCartItemDTO(item);
-                }
-                Session.RemoveAll();
-                return View();
-            }
-            else
-            {
-                return RedirectToAction("Index", "Product");
-            }
-        }
+        //            //listcartitem.Add(cartitem);
+        //            //CartProcess cp = new CartProcess();
+        //            //cp.insertCartItemDTO(item);
+        //        }
+        //        Session.RemoveAll();
+        //        return View();
+        //    }
+        //    else
+        //    {
+        //        return RedirectToAction("Index", "Product");
+        //    }
+        //}
 
         // GET: Cart/Delete/5
         public ActionResult Delete(int id)

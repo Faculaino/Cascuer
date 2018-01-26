@@ -41,3 +41,12 @@
 #listaProductos{
     text-align:center;
 }
+
+#PagoPayPal{
+    width:650px;
+    height:200px;
+}
+
+#imagePayPal{
+    width:590px;
+}
