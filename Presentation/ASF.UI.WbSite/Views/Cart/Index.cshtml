@@ -40,8 +40,10 @@
                     @Html.DisplayFor(modelItem => item.Title)
                 </td>
                 <td>
-                    @*@Html.DisplayFor(modelItem => item.Quantity)*@
-                    <input type="number" id="cantidad" />
+                    <input type="button" value="-" onclick="restar()" style="width:20px;height:23px;">
+                    <input type="text" value="1" style="width:50px;height:23px;font-weight:bold;" id="cantidad"/>
+                    <input type="button" value="+" onclick="sumar()" style="width:20px;height:23px;">
+                   
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Price)
@@ -78,6 +80,16 @@
 @Html.Partial("_Espacio2")
 
 <script>
-    var valor = document.getElementById('cantidad').value();
-    alert(valor);
+   
+  //NO FUNCIONA, HAY QUE REVISARLO
+    function sumar() {
+        var valor = $("#cantidad").val();
+        alert(valor);
+    }
+
+    function restar() {
+        var valor = document.getElementById("cantidad").val();
+        valor = valor - 1;
+    }
+
 </script>

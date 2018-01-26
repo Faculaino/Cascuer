@@ -180,6 +180,10 @@
     <Reference Include="Owin">
       <HintPath>..\..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
     </Reference>
+    <Reference Include="PDQ.Framework.Web.CssIcons, Version=4.0.5500.30939, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\PDQ.Framework.Web.CssIcons.4.0.5500.30939\lib\net45\PDQ.Framework.Web.CssIcons.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Quartz, Version=2.6.0.0, Culture=neutral, PublicKeyToken=f6b8c98a402cc8a4, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Quartz.2.6.0\lib\net40\Quartz.dll</HintPath>
       <Private>True</Private>
@@ -570,6 +574,7 @@
     <Content Include="Images\facebook.png" />
     <Content Include="Images\google.png" />
     <Content Include="Images\google1.JPG" />
+    <Content Include="Images\gracias-compra.png" />
     <Content Include="Images\insta1.JPG" />
     <Content Include="Images\instagram.png" />
     <Content Include="Images\linke1.JPG" />
