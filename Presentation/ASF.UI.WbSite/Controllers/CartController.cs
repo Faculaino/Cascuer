@@ -16,6 +16,7 @@ namespace ASF.UI.WbSite.Controllers
         public ActionResult Index()
         {
             return View(Session["Carrito"]);
+            //return View();
         }
 
         //public ActionResult PaymentMethods()
@@ -222,8 +223,6 @@ namespace ASF.UI.WbSite.Controllers
         {
             try
             {
-                // TODO: Add delete logic here
-
                 return RedirectToAction("Index");
             }
             catch

@@ -1,33 +1,37 @@
 ﻿@{
-    ViewBag.Title = "Cart item";
+    ViewBag.Title = "Carrito de Compras";
 }
 
 @Html.Partial("_Espacio1")
 
 <div class="row">
     <div class="col-lg-8">
-        <h2>Cart item</h2><br />
+        <h2>Carrito de Compras</h2><br />
     </div>
     <div class="col-lg-3">
-        <h4>Date: @DateTime.Now.ToShortDateString()</h4>
+        <h4>Fecha: @DateTime.Now.ToShortDateString()</h4>
     </div>
 </div>
 
 <table class="table table-hover">
     <tr>
         <th>
-            @Html.DisplayName("Title")
+            @Html.DisplayName("Descripción")
         </th>
         <th>
-            @Html.DisplayName("Quantity")
+            @Html.DisplayName("Cantidad")
         </th>
         <th>
-            @Html.DisplayName("Price")
+            @Html.DisplayName("Precio Unid")
         </th>
+        <td>
+            @Html.DisplayName("SubTotal")
+        </td>
         <th></th>
     </tr>
     @{
         double total = 0;
+        double subTotal = 0;
     }
     @if (Session["Carrito"] != null)
     {
@@ -35,18 +39,22 @@
         {
 
             total += (double)(item.Price * item.Quantity);
+            subTotal = 0;
             <tr>
                 <td>
                     @Html.DisplayFor(modelItem => item.Title)
                 </td>
                 <td>
-                    <input type="button" value="-" onclick="restar()" style="width:20px;height:23px;">
-                    <input type="text" value="1" style="width:50px;height:23px;font-weight:bold;" id="cantidad"/>
-                    <input type="button" value="+" onclick="sumar()" style="width:20px;height:23px;">
-                   
+                    <input type="text" value="1" min="0" style="width:50px;height:23px;font-weight:bold;" id="cantidad"/>
+                    <button id="restar">-</button>
+                    <button id="sumar">+</button>
+                    <script src="~/Scripts/scriptCarrito.js"></script>
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td>
+                    @Html.DisplayName(subTotal.ToString())
                 </td>
                 <td>
                     @Html.ActionLink("Delete", "Delete", new { id = item.ProductId }, new { @class = "btn btn-danger btn-sm" })
@@ -54,15 +62,17 @@
             </tr>
         }
         <tr>
-            <th colspan="2">
+            
+            <th colspan="2" style="background-color:white; color:black; border-radius:5px; border-top-right-radius:0px; border-bottom-right-radius:0px;">
                 @Html.DisplayName("Total")
             </th>
-            <th>
-                @Html.DisplayName(total.ToString())
-            </th>
-            <th>
+            <th colspan="1" style="background-color:white; color:black;">
 
             </th>
+            <th colspan="1" style="background-color:white; color:black; border-radius:5px; border-top-left-radius:0px; border-bottom-left-radius:0px;">
+                @Html.DisplayName(total.ToString())
+            </th>
+            
         </tr>
     }
 </table>
@@ -76,20 +86,5 @@
         @Html.ActionLink("Finalizar", "PaymentMethods", "Cart", null, new { @class = "btn btn-primary" })
     </div>
 </div>
-
 @Html.Partial("_Espacio2")
 
-<script>
-   
-  //NO FUNCIONA, HAY QUE REVISARLO
-    function sumar() {
-        var valor = $("#cantidad").val();
-        alert(valor);
-    }
-
-    function restar() {
-        var valor = document.getElementById("cantidad").val();
-        valor = valor - 1;
-    }
-
-</script>
