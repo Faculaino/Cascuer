@@ -39,22 +39,31 @@
         {
 
             total += (double)(item.Price * item.Quantity);
-            subTotal = 0;
+            subTotal = (double)(item.Price * item.Quantity);
             <tr>
                 <td>
                     @Html.DisplayFor(modelItem => item.Title)
                 </td>
                 <td>
-                    <input type="text" value="1" min="0" style="width:50px;height:23px;font-weight:bold;" id="cantidad"/>
                     <button id="restar">-</button>
+                    @*<input type="text" value="1" min="0" style="width:50px;height:23px;font-weight:bold;" id="cantidad"/>*@
+                    <span id="cantidad2" style="color: white">
+                        @Html.DisplayFor(modelItem => item.Quantity)
+                    </span>
+
                     <button id="sumar">+</button>
                     <script src="~/Scripts/scriptCarrito.js"></script>
+                    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Price)
+                    <span id="precioUn2" style="color: white">
+                        @Html.DisplayFor(modelItem => item.Price)
+                    </span>
                 </td>
                 <td>
-                    @Html.DisplayName(subTotal.ToString())
+                    <span id="subtotal2" style="color: white">
+                        @Html.DisplayName(subTotal.ToString())
+                    </span>
                 </td>
                 <td>
                     @Html.ActionLink("Delete", "Delete", new { id = item.ProductId }, new { @class = "btn btn-danger btn-sm" })
@@ -62,7 +71,7 @@
             </tr>
         }
         <tr>
-            
+
             <th colspan="2" style="background-color:white; color:black; border-radius:5px; border-top-right-radius:0px; border-bottom-right-radius:0px;">
                 @Html.DisplayName("Total")
             </th>
@@ -72,7 +81,7 @@
             <th colspan="1" style="background-color:white; color:black; border-radius:5px; border-top-left-radius:0px; border-bottom-left-radius:0px;">
                 @Html.DisplayName(total.ToString())
             </th>
-            
+
         </tr>
     }
 </table>

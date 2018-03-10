@@ -91,9 +91,9 @@ namespace ASF.UI.WbSite.Controllers
                 int idexistente = controlarId(id);
                 if (idexistente == -1)
                     cartItem.Add(carritoItem);
-                else
-                    cartItem[idexistente].Quantity++;
-                Session["Carrito"] = cartItem;
+                //else
+                //    cartItem[idexistente].Quantity++;
+                //Session["Carrito"] = cartItem;
             }
             return RedirectToAction("Index");
         }
