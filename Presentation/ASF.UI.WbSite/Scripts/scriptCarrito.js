@@ -3,21 +3,42 @@ document.getElementById("restar").addEventListener("click", functionResta);
 
 function functionSuma() {
     var valor = 0;
-    var precioUn = parseFloat(document.getElementById("precioUn2").innerHTML);
+    valor = document.getElementById("quantity2").innerHTML;
 
-    valor = document.getElementById("cantidad2").innerHTML;
     valor = parseInt(valor) + 1;
-    $("#cantidad2").html(valor);
-    $("#subtotal2").html(precioUn * valor);
+    $("#quantity2").html(valor);
+    // $("#quantity").val(valor);
 
 }
 
 function functionResta() {
     var valor = 0;
-    var precioUn = parseFloat(document.getElementById("precioUn2").innerHTML);
+    valor = document.getElementById("quantity2").innerHTML;
 
-    valor = document.getElementById("cantidad2").innerHTML;
-    valor = parseInt(valor) - 1;
-    $("#cantidad2").html(valor);
-    $("#subtotal2").html(precioUn * valor);
+    if (valor <= 0)
+    {
+        valor = 0;
+    }
+    else
+    {
+        valor = parseInt(valor) - 1;
+        //actualizaTotal(-precioUn);
+    }
+    $("#quantity2").html(valor);
+    // $("#quantity").val(valor);
+    // actualizaSubtotal(precioUn, valor);
+    
 }
+
+//function actualizaSubtotal(pu, cantidad) {
+//    $("#subtotal2").html(pu * cantidad);
+//}
+
+//function actualizaTotal(valor) {
+//    var valorTOTAL = parseFloat(document.getElementById("total2").innerHTML);
+//    valorTOTAL = valorTOTAL + parseFloat(valor);
+//    $("#total2").html(valorTOTAL);
+//}
+
+
+

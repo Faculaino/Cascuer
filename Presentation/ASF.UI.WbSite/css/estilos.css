@@ -67,3 +67,12 @@
     border-radius:5px;
 }
 
+#btnConfirmar{
+    width:75px;
+    height:25px;
+    text-align:center; 
+    background-color:dodgerblue; 
+    color:white; 
+    border-radius:8px;
+}
+

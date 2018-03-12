@@ -45,15 +45,31 @@
                     @Html.DisplayFor(modelItem => item.Title)
                 </td>
                 <td>
-                    <button id="restar">-</button>
-                    @*<input type="text" value="1" min="0" style="width:50px;height:23px;font-weight:bold;" id="cantidad"/>*@
+                    @using (Html.BeginForm("ChangeQuantity", "Cart", FormMethod.Post))
+                    {
+                        // <input type="button" value="-" id="restar" />
+                        <span style="color: white" id="quantity2">
+                            @Html.DisplayFor(modelItem => item.Quantity)
+                        </span>
+
+                        <input type="number" id="quantity" name="quantity" style="width:60px;"/>
+                        <input type="number" name="id" id="id" style="display:none" value=@item.ProductId />
+                        // <input type="button" value="+" id="sumar"/>
+
+                        <input type="submit" value="Confirmar" id="btnConfirmar" />
+
+                    }
+                    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+                    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+                    <script src="~/Scripts/scriptCarrito.js"></script>
+                    @*<button id="restar">-</button>
                     <span id="cantidad2" style="color: white">
                         @Html.DisplayFor(modelItem => item.Quantity)
                     </span>
-
                     <button id="sumar">+</button>
-                    <script src="~/Scripts/scriptCarrito.js"></script>
                     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+                    <script src="~/Scripts/scriptCarrito.js"></script>*@
+                    
                 </td>
                 <td>
                     <span id="precioUn2" style="color: white">
@@ -79,7 +95,10 @@
 
             </th>
             <th colspan="1" style="background-color:white; color:black; border-radius:5px; border-top-left-radius:0px; border-bottom-left-radius:0px;">
-                @Html.DisplayName(total.ToString())
+                <span id="total2" style="color:black;">
+                    @Html.DisplayName(total.ToString())
+                </span>
+                
             </th>
 
         </tr>

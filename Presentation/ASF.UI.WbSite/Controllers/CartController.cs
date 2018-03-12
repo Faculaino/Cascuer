@@ -28,13 +28,13 @@ namespace ASF.UI.WbSite.Controllers
         //public ActionResult finalizarCompra()
         //{
         //    List<CartItemDTO> compras = (List<CartItemDTO>)Session["Carrito"];
-            
+
         //    Session.RemoveAll();
         //    return View();
 
         //}
 
-       
+
         public ActionResult PaymentMethods()
         {
             List<CartItemDTO> compras = (List<CartItemDTO>)Session["Carrito"];
@@ -90,11 +90,24 @@ namespace ASF.UI.WbSite.Controllers
                 carritoItem.Quantity = producto.QuantitySold;
                 int idexistente = controlarId(id);
                 if (idexistente == -1)
+                {
                     cartItem.Add(carritoItem);
-                //else
-                //    cartItem[idexistente].Quantity++;
-                //Session["Carrito"] = cartItem;
+                }
+                else
+                {
+                    cartItem[idexistente].Quantity++;
+                    Session["Carrito"] = cartItem;
+                }
+                   
             }
+            return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        public ActionResult ChangeQuantity(int id, int quantity)
+        {
+            List<CartItemDTO> cartItem = (List<CartItemDTO>)Session["Carrito"];
+            cartItem.Where(x => x.ProductId == id).First().Quantity = quantity;
             return RedirectToAction("Index");
         }
 
@@ -108,14 +121,14 @@ namespace ASF.UI.WbSite.Controllers
             }
             return -1;
         }
-        
+
         public ActionResult finishCart()
         {
-           
-                Session.RemoveAll();
-                return View();
-          
-          
+
+            Session.RemoveAll();
+            return View();
+
+
         }
 
         // GET: Cart
