@@ -8,6 +8,8 @@ function functionSuma() {
     valor = parseInt(valor) + 1;
     $("#quantity2").html(valor);
     // $("#quantity").val(valor);
+    var texto = document.getElementById("quantity");
+    texto.value = valor;
 
 }
 
@@ -27,6 +29,8 @@ function functionResta() {
     $("#quantity2").html(valor);
     // $("#quantity").val(valor);
     // actualizaSubtotal(precioUn, valor);
+    var texto = document.getElementById("quantity");
+    texto.value = valor;
     
 }
 
@@ -39,6 +43,8 @@ function functionResta() {
 //    valorTOTAL = valorTOTAL + parseFloat(valor);
 //    $("#total2").html(valorTOTAL);
 //}
+
+
 
 
 

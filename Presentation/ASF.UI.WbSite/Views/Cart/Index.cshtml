@@ -32,6 +32,8 @@
     @{
         double total = 0;
         double subTotal = 0;
+        List<int> lista = new List<int>();
+        lista.Clear();
     }
     @if (Session["Carrito"] != null)
     {
@@ -40,6 +42,7 @@
 
             total += (double)(item.Price * item.Quantity);
             subTotal = (double)(item.Price * item.Quantity);
+            lista.Add(item.ProductId);
             <tr>
                 <td>
                     @Html.DisplayFor(modelItem => item.Title)
@@ -47,29 +50,30 @@
                 <td>
                     @using (Html.BeginForm("ChangeQuantity", "Cart", FormMethod.Post))
                     {
-                        // <input type="button" value="-" id="restar" />
-                        <span style="color: white" id="quantity2">
+                        // Botón RESTAR del NumericPicker
+                        <input type="button" value="-" id="restar" class="btnRestar" name=@item.ProductId />
+
+                        // Numero que muestra el NumericPicker
+                        <span style="color: white" id="quantity2" name=@item.Title class="nombreCorrecto">
                             @Html.DisplayFor(modelItem => item.Quantity)
                         </span>
 
-                        <input type="number" id="quantity" name="quantity" style="width:60px;"/>
-                        <input type="number" name="id" id="id" style="display:none" value=@item.ProductId />
-                        // <input type="button" value="+" id="sumar"/>
+                        <input type="text" id="listaProd" style="display:none" name=@lista>
 
+                        // Input que viajan en el FORM
+                        <input type="number" id="quantity" name="quantity" style="width:60px; display:none"/>
+                        <input type="number" name="id" id="id" style="display:none" value=@item.ProductId />
+
+                        // Botón SUMAR del NumericPicker
+                        <input type="button" value="+" id="sumar" class="btnSumar" name=@item.ProductId />
+
+                        // Submit del FORM
                         <input type="submit" value="Confirmar" id="btnConfirmar" />
 
                     }
                     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
                     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-                    <script src="~/Scripts/scriptCarrito.js"></script>
-                    @*<button id="restar">-</button>
-                    <span id="cantidad2" style="color: white">
-                        @Html.DisplayFor(modelItem => item.Quantity)
-                    </span>
-                    <button id="sumar">+</button>
-                    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-                    <script src="~/Scripts/scriptCarrito.js"></script>*@
-                    
+                    <script src="~/Scripts/scriptCarrito2.js"></script>
                 </td>
                 <td>
                     <span id="precioUn2" style="color: white">
