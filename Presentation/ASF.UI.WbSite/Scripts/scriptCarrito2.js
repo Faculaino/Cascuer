@@ -1,7 +1,4 @@
-﻿
-var listaProductos = $("#listaProd").attr("name");
-
-$(document).ready(function () {
+﻿$(document).ready(function () {
 
     $(".btnSumar").click(function () {
         var idObtenido = $(this).attr("name");
@@ -10,17 +7,17 @@ $(document).ready(function () {
         valor = document.getElementById("quantity2").innerHTML;
         valor = parseInt(valor) + 1;
 
-        $(".nombreCorrecto").html(valor);
-
-        //if (idObtenido == lista.ProducId)
-        //{
-        //        $(".nombreCorrecto").html(valor);   
-        //}
-        
+        $('.valorNumeric').each(function () {
+            if ($(this).attr("name") == $("#quantity2").attr("name"))
+            {
+                $(".valorNumeric").text(valor);
+            }
+            
+        });
+      
         var texto = document.getElementById("quantity");
         texto.value = valor;
     });
-
 
     $(".btnRestar").click(function () {
         var idObtenido = $(this).attr("name");
@@ -29,11 +26,18 @@ $(document).ready(function () {
         valor = document.getElementById("quantity2").innerHTML;
         valor = parseInt(valor) - 1;
 
-        $("#quantity2").html(valor);
+        $('.valorNumeric').each(function () {
+            if ($(this).attr("name") == $("#quantity2").attr("name"))
+            {
+                $(".valorNumeric").text(valor);
+            }
+
+        });
 
         var texto = document.getElementById("quantity");
         texto.value = valor;
     });
+
 
 
 

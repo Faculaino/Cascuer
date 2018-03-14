@@ -54,7 +54,7 @@
                         <input type="button" value="-" id="restar" class="btnRestar" name=@item.ProductId />
 
                         // Numero que muestra el NumericPicker
-                        <span style="color: white" id="quantity2" name=@item.Title class="nombreCorrecto">
+                        <span style="color: white" id="quantity2" name=@item.ProductId class="valorNumeric" >
                             @Html.DisplayFor(modelItem => item.Quantity)
                         </span>
 
@@ -90,10 +90,12 @@
                 </td>
             </tr>
         }
+
         <tr>
 
             <th colspan="2" style="background-color:white; color:black; border-radius:5px; border-top-right-radius:0px; border-bottom-right-radius:0px;">
                 @Html.DisplayName("Total")
+                
             </th>
             <th colspan="1" style="background-color:white; color:black;">
 
