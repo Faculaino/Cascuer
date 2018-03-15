@@ -1,0 +1,5 @@
+C:\Users\facun\Desktop\Cascuer\bin\ASF.Data.dll
+C:\Users\facun\Desktop\Cascuer\bin\ASF.Data.pdb
+C:\Users\facun\Desktop\Cascuer\Data\ASF.Data\obj\Release\ASF.Data.csprojResolveAssemblyReference.cache
+C:\Users\facun\Desktop\Cascuer\Data\ASF.Data\obj\Release\ASF.Data.dll
+C:\Users\facun\Desktop\Cascuer\Data\ASF.Data\obj\Release\ASF.Data.pdb

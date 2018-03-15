@@ -1,0 +1,25 @@
+﻿@{
+    ViewBag.Title = "finishCart";
+}
+
+@Html.Partial("_Espacio1")
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="jumbotron">
+                @*<p>Gracias por su Compra!!</p>*@
+                <img src="~/Images/gracias-compra.png" style="width:1000px;" />
+            </div>
+        </div>
+    </div>
+
+    <span style="float:right;">@Html.ActionLink("Ir al Principio", "Index", "Home", null, new { @class = "btn btn-primary" })</span>
+    <div class="row">
+        <div class="col-lg-12" style="float:right">
+
+        </div>
+    </div>
+</div>
+
+@Html.Partial("_Espacio2")

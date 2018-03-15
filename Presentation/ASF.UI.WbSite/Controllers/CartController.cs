@@ -11,7 +11,7 @@ namespace ASF.UI.WbSite.Controllers
 {
     
 
-    [AllowAnonymous]
+    [Authorize]
     public class CartController : Controller
     {
         double totalCompra = 0;

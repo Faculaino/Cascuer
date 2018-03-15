@@ -1,0 +1,78 @@
+﻿#loginForm{
+    margin-left:50%;
+    margin-top:-50px;
+}
+
+#tituloLogin{
+    text-align:center;
+    margin-top:100px;
+}
+
+#cuentaLocal{
+    text-align:center;
+}
+
+#registerForm{
+    margin-top:-50px;
+}
+
+#loginOptions{
+    margin-right:70px;
+
+}
+
+#Pie{
+    text-align:center;
+    /*margin-right:70px;*/
+    margin-top:70px;
+}
+
+#Pie .img-circle{
+    width:40px;
+    height:40px;
+}
+
+
+
+#PieIndex{
+    margin-top:-50px;
+}
+
+#listaProductos{
+    text-align:center;
+}
+
+#PagoPayPal{
+    width:650px;
+    height:200px;
+}
+
+#imagePayPal{
+    width:590px;
+}
+
+#sumar{
+    width:35px;
+    height:25px; 
+    background-color:green; 
+    color:white; 
+    border-radius:5px;
+}
+
+#restar{
+    width:35px;
+    height:25px; 
+    background-color:red; 
+    color:white; 
+    border-radius:5px;
+}
+
+.btnConfirmar{
+    width:75px;
+    height:25px;
+    text-align:center; 
+    background-color:dodgerblue; 
+    color:white; 
+    border-radius:8px;
+}
+

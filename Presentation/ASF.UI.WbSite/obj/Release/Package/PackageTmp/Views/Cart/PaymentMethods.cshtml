@@ -1,0 +1,99 @@
+﻿@Html.Partial("_Espacio1")
+
+
+@*<div class="col-md-4" id="totalCarrito">*@
+<div class="col-lg-3 col-md-6">
+    <div class="panel panel-success">
+        <div class="panel-heading panel-title">TOTAL de la Compra: $ @ViewBag.Total</div>
+        <div class="panel-body">
+            <label>Cantidad de Productos: @ViewBag.Cantidad</label>
+        </div>
+    </div>
+</div>
+<br /><br /><br /><br /><br /><br />
+<div class="col-md-4" id="PagoTarjeta">
+    <div class="panel panel-success">
+        <div class="panel-heading panel-title">Tarjeta de Crédito</div>
+        <div class="panel-body">
+
+            <label>Marca</label>
+            <div class="input-group">
+                <span class="input-group-addon"><i class="fa-font-awesome glyphicon-credit-card"></i></span>
+                <select class="selectpicker form-control">
+                    <option style="color:black;">Selecione ...</option>
+                    <option style="color:black;" value="visa">Visa</option>
+                    <option style="color:black;" value="amex">American Express</option>
+                    <option style="color:black;" value="master">MasterCard</option>
+                </select>
+            </div>
+
+            <br />
+            @{
+                double totalCompra = 0;
+                totalCompra = double.Parse(ViewBag.Total.ToString());
+                string valorCuota3 = "";
+                string valorCuota6 = "";
+                string valorCuota12 = "";
+
+                valorCuota3 = (totalCompra / 3).ToString("0.##");
+                valorCuota6 = (totalCompra / 6).ToString("0.##");
+                valorCuota12 = (totalCompra / 12).ToString("0.##");
+
+                ViewBag.val3 = valorCuota3;
+                ViewBag.val6 = valorCuota6;
+                ViewBag.val12 = valorCuota12;
+            }
+           
+            <label>Cantidad de Cuotas</label>
+            <div class="input-group">
+                <span class="input-group-addon"><i class="fa-font-awesome glyphicon-chevron-right"></i></span>
+                <select class="selectpicker form-control">
+                    <option style="color:black;">Selecione ...</option>
+                    <option style="color:black;" value="3">3 cuotas de $@ViewBag.val3 c/u</option>
+                    <option style="color:black;" value="6">6 cuotas de $@ViewBag.val6 c/u</option>
+                    <option style="color:black;" value="12">12 cuotas de $@ViewBag.val12 c/u</option>
+                </select>
+            </div>
+            
+            <br />
+            <div class="form-inline">
+                <label>Número</label><br>
+                <input type="text" required class="form-control" placeholder="0000" maxlength="4" size="4" />
+                <input type="text" required class="form-control" placeholder="1111" maxlength="4" size="4" />
+                <input type="text" required class="form-control" placeholder="2222" maxlength="4" size="4" />
+                <input type="text" required class="form-control" placeholder="3333" maxlength="4" size="4" />
+            </div>
+            <br />
+            <div class="form-inline">
+                <label>Fecha que Expira</label><br>
+                <input type="text" required class="form-control" placeholder="MM" maxlength="2" size="2" /> / <input type="text" class="form-control" required placeholder="YYYY" maxlength="4" size="4" />
+            </div>
+
+            <br />
+
+            <div class="form-inline">
+                <label>Cod. Verificación</label><br />
+                <input type="text" size="4" class="form-control" required maxlength="4" placeholder="1234" />
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+<div class="col-md-4" id="PagoPayPal" style="width:650px; height:200px;">
+    <div class="panel panel-success">
+        <div class="panel-heading panel-title">PayPal</div>
+        <div class="panel-body">
+            <img id="imagePayPal " src="~/Images/PayPal.JPG" style="width:590px;" />
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div style="float:right">
+        @Html.ActionLink("Confirmar", "finishCart", "Cart", null, new { @class = "btn btn-primary" })
+    </div>
+</div>
+
+@Html.Partial("_Espacio2")
+

@@ -12,7 +12,7 @@ namespace ASF.UI.WbSite.Controllers
     [AllowAnonymous]
     public class ProductController : Controller
     {
-        // GET: Product
+        [AllowAnonymous]
         public ActionResult Index()
         {
             //var pp = new ProductProcess();

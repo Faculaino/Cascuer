@@ -1,0 +1,41 @@
+﻿@Html.Partial("_Espacio1")
+@{
+    ViewBag.Title = "Contacto";
+    ViewBag.Description = "Página Oficial de Cascuer";
+    ViewBag.Author = "Facundo Ezequiel Laino";
+    ViewBag.ReferrerMode = ReferrerMode.OriginWhenCrossOrigin;
+    ViewBag.TwitterCard = new SummaryLargeImageTwitterCard("@faculaino");
+    ViewBag.OpenGraph = new OpenGraphProfile(
+ViewBag.Title,
+new OpenGraphImage(Url.AbsoluteContent("~/content/icons/open-graph-1200x630.png")) { Height = 630, Type = ContentType.Png, Width = 1200 })
+    {
+        Determiner = OpenGraphDeterminer.Blank,
+        FirstName = "Facundo Ezequiel",
+        Gender = OpenGraphGender.Male,
+        LastName = "Laino",
+        SiteName = Application.Name,
+        Username = "FacuLaino"
+    };
+}
+
+<header class="page-header">
+    <h1><span aria-hidden="true" class="fa fa-phone"></span> @ViewBag.Title</h1>
+</header>
+
+<div class="row">
+    <section class="col-md-9" role="region">
+        <p>@ViewBag.Description</p>
+    </section>
+    <aside class="col-md-3" role="complementary">
+        <address>
+            AV. RAÚL SCALABRINI ORTÍZ 660<br>
+            C 1414 DNT C.A.B.A.<br>
+            <abbr title="Phone">P:</abbr>
+            011 4854 2663
+        </address>
+        <address>
+            <strong>Email:</strong>   <a href="mailto:cascuer@cascuer.com.ar">cascuer@cascuer.com.ar</a><br />
+        </address>
+    </aside>
+</div>
+@Html.Partial("_Espacio2")
