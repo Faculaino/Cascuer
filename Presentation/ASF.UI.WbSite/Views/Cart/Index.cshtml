@@ -32,8 +32,7 @@
     @{
         double total = 0;
         double subTotal = 0;
-        List<int> lista = new List<int>();
-        lista.Clear();
+       
     }
     @if (Session["Carrito"] != null)
     {
@@ -42,7 +41,7 @@
 
             total += (double)(item.Price * item.Quantity);
             subTotal = (double)(item.Price * item.Quantity);
-            lista.Add(item.ProductId);
+            
             <tr>
                 <td>
                     @Html.DisplayFor(modelItem => item.Title)
@@ -54,35 +53,31 @@
                         <input type="button" value="-" id="restar" class="btnRestar" name=@item.ProductId />
 
                         // Numero que muestra el NumericPicker
-                        <span style="color: white" id="quantity2" name=@item.ProductId class="valorNumeric" >
+                        <span style="color: white" id=@item.ProductId name="quantity2" class="valorNumeric">
                             @Html.DisplayFor(modelItem => item.Quantity)
                         </span>
-
-                        <input type="text" id="listaProd" style="display:none" name=@lista>
-
+                        
                         // Input que viajan en el FORM
-                        <input type="number" id="quantity" name="quantity" style="width:60px; display:none"/>
+                        <input type="number" id="quantity" name="quantity" style="width:60px; display:none" class="@item.ProductId"/>
                         <input type="number" name="id" id="id" style="display:none" value=@item.ProductId />
 
                         // Botón SUMAR del NumericPicker
                         <input type="button" value="+" id="sumar" class="btnSumar" name=@item.ProductId />
 
                         // Submit del FORM
-                        <input type="submit" value="Confirmar" id="btnConfirmar" />
+                        <input type="submit" value="Confirmar" class="btnConfirmar" id="@item.ProductId"  style="display:none"/>
 
                     }
-                    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-                    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-                    <script src="~/Scripts/scriptCarrito2.js"></script>
+                    <script src="~/Scripts/scriptCarrito.js"></script>
                 </td>
                 <td>
                     <span id="precioUn2" style="color: white">
-                        @Html.DisplayFor(modelItem => item.Price)
+                        $ @Html.DisplayFor(modelItem => item.Price)
                     </span>
                 </td>
                 <td>
                     <span id="subtotal2" style="color: white">
-                        @Html.DisplayName(subTotal.ToString())
+                        $ @Html.DisplayName(subTotal.ToString())
                     </span>
                 </td>
                 <td>
@@ -95,14 +90,13 @@
 
             <th colspan="2" style="background-color:white; color:black; border-radius:5px; border-top-right-radius:0px; border-bottom-right-radius:0px;">
                 @Html.DisplayName("Total")
-                
             </th>
             <th colspan="1" style="background-color:white; color:black;">
 
             </th>
             <th colspan="1" style="background-color:white; color:black; border-radius:5px; border-top-left-radius:0px; border-bottom-left-radius:0px;">
                 <span id="total2" style="color:black;">
-                    @Html.DisplayName(total.ToString())
+                   $ @Html.DisplayName(total.ToString())
                 </span>
                 
             </th>

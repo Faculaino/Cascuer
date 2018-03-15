@@ -9,30 +9,20 @@ using ASF.UI.WbSite.Services.Cache;
 
 namespace ASF.UI.WbSite.Controllers
 {
+    
+
     [AllowAnonymous]
     public class CartController : Controller
     {
+        double totalCompra = 0;
+        double subtotal = 0;
+        double cantidad = 0;
 
         public ActionResult Index()
         {
             return View(Session["Carrito"]);
             //return View();
         }
-
-        //public ActionResult PaymentMethods()
-        //{
-        //    return View();
-        //}
-
-        //[Authorize]
-        //public ActionResult finalizarCompra()
-        //{
-        //    List<CartItemDTO> compras = (List<CartItemDTO>)Session["Carrito"];
-
-        //    Session.RemoveAll();
-        //    return View();
-
-        //}
 
 
         public ActionResult PaymentMethods()
@@ -41,19 +31,16 @@ namespace ASF.UI.WbSite.Controllers
 
             if (compras != null && compras.Count > 0)
             {
-                //CartItem cartitem = new CartItem();
-                //List<CartItem> listcartitem = new List<CartItem>();
+                
 
                 foreach (var item in compras)
                 {
-                    //cartitem.ProductId = item.ProductId;
-                    //cartitem.Quantity = item.Quantity;
-                    //cartitem.Price = item.Price;
-
-                    //listcartitem.Add(cartitem);
-                    //CartProcess cp = new CartProcess();
-                    //cp.insertCartItemDTO(item);
+                    cantidad += item.Quantity;
+                    subtotal = item.Price * item.Quantity;
+                    totalCompra += (item.Price * item.Quantity);
                 }
+                ViewBag.Total = totalCompra;
+                ViewBag.Cantidad = cantidad;
                 Session.RemoveAll();
                 return View();
             }
@@ -186,41 +173,6 @@ namespace ASF.UI.WbSite.Controllers
                 return View();
             }
         }
-
-        //[AllowAnonymous]
-        //public ActionResult mostrarCarrito()
-        //{
-        //    return View(Session["Carrito"]);
-        //}
-
-        //[Authorize]
-        //public ActionResult finalizarCompra()
-        //{
-        //    List<CartItemDTO> compras = (List<CartItemDTO>)Session["Carrito"];
-
-        //    if (compras != null && compras.Count > 0)
-        //    {
-        //        //CartItem cartitem = new CartItem();
-        //        //List<CartItem> listcartitem = new List<CartItem>();
-
-        //        foreach (var item in compras)
-        //        {
-        //            //cartitem.ProductId = item.ProductId;
-        //            //cartitem.Quantity = item.Quantity;
-        //            //cartitem.Price = item.Price;
-
-        //            //listcartitem.Add(cartitem);
-        //            //CartProcess cp = new CartProcess();
-        //            //cp.insertCartItemDTO(item);
-        //        }
-        //        Session.RemoveAll();
-        //        return View();
-        //    }
-        //    else
-        //    {
-        //        return RedirectToAction("Index", "Product");
-        //    }
-        //}
 
         // GET: Cart/Delete/5
         public ActionResult Delete(int id)

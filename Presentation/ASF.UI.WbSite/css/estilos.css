@@ -67,7 +67,7 @@
     border-radius:5px;
 }
 
-#btnConfirmar{
+.btnConfirmar{
     width:75px;
     height:25px;
     text-align:center; 
